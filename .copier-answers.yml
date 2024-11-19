@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.3.5
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: ''
+author_name: QuantStack
+has_binder: false
+has_settings: true
+kind: frontend
+labextension_name: jupyter-iframe-commands
+project_short_description: A JupyterLab extension to facilitate integration with a
+    host page via an IFrame
+python_name: jupyter_iframe_commands
+repository: https://github.com/TileDB-Inc/jupyter-iframe-commands
+test: true
+
