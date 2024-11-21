@@ -1,0 +1,9 @@
+# Core modules (mandatory)
+jupyterlite-core==0.4.4
+jupyterlab~=4.2.5
+notebook~=7.2.2
+
+# JupyterLab: dark theme
+jupyterlab-night
+# JupyterLab: Miami nights theme (optional)
+jupyterlab_miami_nights

@@ -123,3 +123,6 @@ dmypy.json
 
 # Yarn cache
 .yarn/
+
+# lite build for demo
+demo/lite
