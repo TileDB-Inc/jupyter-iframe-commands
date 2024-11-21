@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parent</title>
+    <title>Demo</title>
     <script type="module">
       import * as Comlink from 'https://unpkg.com/comlink/dist/esm/comlink.mjs';
 
@@ -27,12 +27,31 @@
     </script>
   </head>
   <body>
-    <h1>Parent Page</h1>
+    <div
+      style="display: flex; align-items: center; justify-content: space-around"
+    >
+      <h1>Demo</h1>
+      <div>
+        <form id="commands">
+          <input type="text" name="command" placeholder="Enter a command" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
     <iframe
       id="jupyterlab"
       src="./lite/index.html"
       sandbox="allow-scripts allow-same-origin"
       style="width: 100%; height: 100vh"
     ></iframe>
+
+    <script>
+      document.getElementById('commands').addEventListener('submit', e => {
+        e.preventDefault();
+        const command = document.querySelector('input[name="command"]').value;
+        commandBridge.execute(command);
+      });
+    </script>
   </body>
 </html>
