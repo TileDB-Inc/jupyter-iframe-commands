@@ -34,6 +34,7 @@
       <div>
         <form id="commands">
           <input type="text" name="command" placeholder="Enter a command" />
+          <input type="text" name="args" placeholder="Enter args (optional)" />
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -50,7 +51,12 @@
       document.getElementById('commands').addEventListener('submit', e => {
         e.preventDefault();
         const command = document.querySelector('input[name="command"]').value;
-        commandBridge.execute(command);
+
+        // Single quotes cause an error
+        const args = document
+          .querySelector('input[name="args"]')
+          .value.replace(/'/g, '"');
+        commandBridge.execute(command, args ? JSON.parse(args) : null);
       });
     </script>
   </body>
