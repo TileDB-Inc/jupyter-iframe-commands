@@ -3,7 +3,8 @@
   "jupyter-config-data": {
     "disabledExtensions": [
       "@jupyterlab/mainmenu-extension",
-      "@jupyterlite/application-extension:logo"
+      "@jupyterlite/application-extension:logo",
+      "@jupyterlab/help-extension:resources"
     ]
   }
 }
