@@ -165,12 +165,12 @@ jobs:
           python -m pip install -r requirements.txt
       - name: Build the JupyterLite site
         run: |
-          jupyter lite build --contents README.md --output-dir demo/lite
+          jupyter lite build --contents README.md --output-dir ghpages/lite
       - name: Upload artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./demo
+          path: ./ghpages
 
   deploy:
     needs: build

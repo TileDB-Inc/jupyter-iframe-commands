@@ -125,4 +125,5 @@ dmypy.json
 .yarn/
 
 # lite build for demo
-demo/lite
+ghpages/lite
+.jupyterlite.doit.db
