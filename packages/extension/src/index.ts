@@ -45,7 +45,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     }
 
     const { commands } = app;
-    const api = new CommandBridge({ commands });
+    const api = new CommandBridge('jupyterlab', { commands });
     const endpoint = windowEndpoint(self.parent);
     expose(api, endpoint);
   }

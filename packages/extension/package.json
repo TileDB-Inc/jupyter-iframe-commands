@@ -14,7 +14,6 @@
   "author": "QuantStack",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "style": "style/index.css",
   "directories": {
     "lib": "lib/"
   },
@@ -27,16 +26,25 @@
   "sideEffects": [
     "style/**/*"
   ],
-  "styleModule": "style/index.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "tsc -b",
+    "build": "jlpm build:lib && jlpm build:labextension:dev",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "build:lib": "tsc -b",
     "watch": "tsc -b --watch"
+  },
+  "jupyterlab": {
+    "extension": true,
+    "outputDir": "../../jupyter_iframe_commands/labextension"
   },
   "dependencies": {
     "@jupyterlab/application": "^4.3.1",
-    "@jupyterlab/settingregistry": "^4.3.1"
+    "@jupyterlab/settingregistry": "^4.3.1",
+    "jupyterlab-iframe-commands-host": "0.1.0"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "^4.2.6"
   }
 }
