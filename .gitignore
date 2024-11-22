@@ -127,3 +127,6 @@ dmypy.json
 # lite build for demo
 ghpages/lite
 .jupyterlite.doit.db
+
+# nx cache files
+.nx

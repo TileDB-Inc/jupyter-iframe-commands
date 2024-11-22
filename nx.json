@@ -1,0 +1,15 @@
+{
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": [],
+      "outputs": [
+        "{projectRoot}/packages/extension/lib",
+        "{projectRoot}/packages/host/lib"
+      ]
+    },
+    "watch": {
+      "dependsOn": []
+    }
+  }
+}
