@@ -1,0 +1,43 @@
+{
+  "name": "jupyterlab-iframe-commands-host",
+  "version": "0.1.0",
+  "description": "\"A JupyterLab extension to facilitate integration with a host page via an IFrame\"",
+  "homepage": "https://github.com/TileDB-Inc/jupyter-iframe-commands#readme",
+  "bugs": {
+    "url": "https://github.com/TileDB-Inc/jupyter-iframe-commands/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TileDB-Inc/jupyter-iframe-commands.git"
+  },
+  "license": "BSD-3-Clause",
+  "author": "QuantStack",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "directories": {
+    "lib": "lib/"
+  },
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
+    "style/index.js",
+    "src/**/*.{ts,tsx}"
+  ],
+  "sideEffects": [
+    "style/**/*"
+  ],
+  "styleModule": "style/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "watch": "tsc -b --watch"
+  },
+  "dependencies": {
+    "@lumino/commands": "^2.3.1",
+    "@lumino/coreutils": "^2.2.0",
+    "comlink": "^4.4.2"
+  }
+}

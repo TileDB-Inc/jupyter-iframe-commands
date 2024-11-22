@@ -10,7 +10,7 @@ import { ISettingRegistry } from '@jupyterlab/settingregistry';
 
 import { expose, windowEndpoint } from 'comlink';
 
-import { CommandBridge } from './api';
+import { CommandBridge } from 'jupyterlab-iframe-commands-host';
 
 /**
  * A plugin to expose an API for interacting with JupyterLab from a parent page.
