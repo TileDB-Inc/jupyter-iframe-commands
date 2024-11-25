@@ -33,6 +33,8 @@
   },
   "scripts": {
     "build": "tsc -b",
+    "build:prod": "jlpm run build",
+    "install:extension": "jlpm run build",
     "watch": "tsc -b --watch"
   },
   "dependencies": {
