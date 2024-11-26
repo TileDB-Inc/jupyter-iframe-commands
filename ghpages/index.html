@@ -56,7 +56,7 @@
         const args = document
           .querySelector('input[name="args"]')
           .value.replace(/'/g, '"');
-        commandBridge.execute(command, args ? JSON.parse(args) : null);
+        commandBridge.execute(command, args ? JSON.parse(args) : {});
       });
     </script>
   </body>

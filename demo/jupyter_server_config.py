@@ -11,3 +11,5 @@ c.ServerApp.tornado_settings = {
     }
 }
 c.ServerApp.allow_origin = "http://localhost:8080"
+
+c.ServerApp.disable_check_xsrf = True
