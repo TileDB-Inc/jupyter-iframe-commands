@@ -4,40 +4,59 @@
 
 A JupyterLab extension to facilitate integration with a host page via an IFrame
 
+> [!WARNING]
+> This project is still in an early development stage.
+
 ## Requirements
 
 - JupyterLab >= 4.0.0
 
 ## Install
 
-To install the extension, execute:
+To install the extension
 
-```bash
-pip install jupyter-iframe-commands
-```
+- Clone the repo to your local environment
+- Change directory to the `jupyter-iframe-commands` directory
+- execute: `pip install .`
 
 ## Usage
 
-TODO
+Try out a preview [here](https://tiledb-inc.github.io/jupyter-iframe-commands/)
 
-### List of available commands
+### Available Commands
 
-The list of available commands may depend on:
+> [!NOTE]
+> The list of available commands may depend on:
+>
+> - The JupyterLab version
+> - Whether your JupyterLab configuration disables some core plugins or extensions
+> - Third-party extensions available in the JupyterLab environment
 
-- the JupyterLab version
-- whether your JupyterLab configuration disables some core plugins or extensions
-- third-party extensions available in the JupyterLab environment
+Some examples of available commands:
 
-For reference JupyterLab defines a list of default commands here: https://jupyterlab.readthedocs.io/en/latest/user/commands.html#commands-list
+- `application:toggle-left-area`
+- `apputils:activate-command-palette`
+- `apputils:display-shortcuts`
+- `extensionmanager:show-panel`
+- `notebook:create-new`
+- `notebook:insert-cell-below`
 
-## Demo
+Examples of commands with arguments:
 
-To run the demo:
+- `apputils:change-theme` `{ 'theme': 'JupyterLab Dark' }`
+- `settingeditor:open` `{ 'settingEditorType': 'json' }`
 
-- follow the development install instructions below
+> [!TIP]
+> For reference JupyterLab defines a list of default commands here: https://jupyterlab.readthedocs.io/en/latest/user/commands.html#commands-list
+
+## Local Demo
+
+To run the demo on a local Jupyter Lab instance:
+
+- Follow the [development install instructions](#development-install)
 - `cd demo`
 - `npx http-server`
-- in another terminal, run: `jupyter lab --config ./jupyter_server_config.py`
+- in another terminal (also in the `demo` directory), run: `jupyter lab --config ./jupyter_server_config.py`
 
 Open http://localhost:8080 in your browser.
 
@@ -53,7 +72,8 @@ pip uninstall jupyter-iframe-commands
 
 ### Development install
 
-Note: You will need NodeJS to build the extension package.
+> [!NOTE]
+> You will need NodeJS to build the extension package.
 
 The `jlpm` command is JupyterLab's pinned version of
 [yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
