@@ -1,6 +1,7 @@
 {
-  "name": "jupyter-iframe-commands",
+  "name": "jupyter-iframe-commands-root",
   "version": "0.1.0",
+  "private": true,
   "description": "A JupyterLab extension to facilitate integration with a host page via an IFrame",
   "keywords": [
     "jupyter",
@@ -22,7 +23,7 @@
     "install:extension": "lerna run install:extension"
   },
   "devDependencies": {
-    "@jupyterlab/builder": "^4.2.6",
+    "@jupyterlab/builder": "^4.3.1",
     "@types/json-schema": "^7.0.11",
     "@types/react": "^18.0.26",
     "@types/react-addons-linked-state-mixin": "^0.14.22",

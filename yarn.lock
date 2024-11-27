@@ -356,7 +356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyterlab/builder@npm:^4.2.6":
+"@jupyterlab/builder@npm:^4.2.6, @jupyterlab/builder@npm:^4.3.1":
   version: 4.3.1
   resolution: "@jupyterlab/builder@npm:4.3.1"
   dependencies:
@@ -5353,11 +5353,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jupyter-iframe-commands@workspace:.":
+"jupyter-iframe-commands-host@workspace:packages/host":
   version: 0.0.0-use.local
-  resolution: "jupyter-iframe-commands@workspace:."
+  resolution: "jupyter-iframe-commands-host@workspace:packages/host"
   dependencies:
-    "@jupyterlab/builder": ^4.2.6
+    "@lumino/commands": ^2.3.1
+    "@lumino/coreutils": ^2.2.0
+    comlink: ^4.4.2
+  languageName: unknown
+  linkType: soft
+
+"jupyter-iframe-commands-root@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "jupyter-iframe-commands-root@workspace:."
+  dependencies:
+    "@jupyterlab/builder": ^4.3.1
     "@types/json-schema": ^7.0.11
     "@types/react": ^18.0.26
     "@types/react-addons-linked-state-mixin": ^0.14.22
@@ -5383,24 +5393,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"jupyterlab-iframe-commands-extension@workspace:packages/extension":
+"jupyter-iframe-commands@workspace:packages/extension":
   version: 0.0.0-use.local
-  resolution: "jupyterlab-iframe-commands-extension@workspace:packages/extension"
+  resolution: "jupyter-iframe-commands@workspace:packages/extension"
   dependencies:
     "@jupyterlab/application": ^4.3.1
     "@jupyterlab/builder": ^4.2.6
     "@jupyterlab/settingregistry": ^4.3.1
-    jupyterlab-iframe-commands-host: 0.1.0
-  languageName: unknown
-  linkType: soft
-
-"jupyterlab-iframe-commands-host@0.1.0, jupyterlab-iframe-commands-host@workspace:packages/host":
-  version: 0.0.0-use.local
-  resolution: "jupyterlab-iframe-commands-host@workspace:packages/host"
-  dependencies:
-    "@lumino/commands": ^2.3.1
-    "@lumino/coreutils": ^2.2.0
-    comlink: ^4.4.2
   languageName: unknown
   linkType: soft
 

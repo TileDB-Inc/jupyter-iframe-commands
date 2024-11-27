@@ -25,7 +25,9 @@ const plugin: JupyterFrontEndPlugin<void> = {
     app: JupyterFrontEnd,
     settingRegistry: ISettingRegistry | null
   ) => {
-    console.log('JupyterLab extension jupyter-iframe-commands is activated!');
+    console.log(
+      'JupyterLab extension jupyter-iframe-commands is activated wooooo!'
+    );
 
     if (settingRegistry) {
       settingRegistry

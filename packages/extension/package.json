@@ -1,5 +1,5 @@
 {
-  "name": "jupyterlab-iframe-commands-extension",
+  "name": "jupyter-iframe-commands",
   "version": "0.1.0",
   "description": "\"A JupyterLab extension to facilitate integration with a host page via an IFrame\"",
   "homepage": "https://github.com/TileDB-Inc/jupyter-iframe-commands#readme",
@@ -21,7 +21,8 @@
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
     "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
     "style/index.js",
-    "src/**/*.{ts,tsx}"
+    "src/**/*.{ts,tsx}",
+    "schema/*.json"
   ],
   "sideEffects": [
     "style/**/*"
@@ -43,12 +44,12 @@
   },
   "jupyterlab": {
     "extension": true,
-    "outputDir": "../../jupyter_iframe_commands/labextension"
+    "outputDir": "../../jupyter_iframe_commands/labextension",
+    "schemaDir": "schema"
   },
   "dependencies": {
     "@jupyterlab/application": "^4.3.1",
-    "@jupyterlab/settingregistry": "^4.3.1",
-    "jupyterlab-iframe-commands-host": "0.1.0"
+    "@jupyterlab/settingregistry": "^4.3.1"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^4.2.6"
