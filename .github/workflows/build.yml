@@ -33,11 +33,12 @@ jobs:
       - name: Build the extension
         run: |
           set -eux
-          python -m pip install .[test]
+          jlpm
+          jlpm build
+          pip install -e ".[test]"
+          jupyter labextension develop . --overwrite
 
-          jupyter labextension list
           jupyter labextension list 2>&1 | grep -ie "jupyter-iframe-commands.*OK"
-          python -m jupyterlab.browser_check
 
       - name: Package the extension
         run: |
