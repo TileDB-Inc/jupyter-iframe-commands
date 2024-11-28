@@ -1,15 +1,15 @@
 {
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*"]
+  },
   "targetDefaults": {
     "build": {
       "cache": true,
-      "dependsOn": [],
+      "dependsOn": ["^build"],
       "outputs": [
         "{projectRoot}/packages/extension/lib",
         "{projectRoot}/packages/host/lib"
       ]
-    },
-    "watch": {
-      "dependsOn": []
     }
   }
 }

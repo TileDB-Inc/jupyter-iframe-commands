@@ -5353,7 +5353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jupyter-iframe-commands-host@workspace:packages/host":
+"jupyter-iframe-commands-host@0.1.0, jupyter-iframe-commands-host@workspace:packages/host":
   version: 0.0.0-use.local
   resolution: "jupyter-iframe-commands-host@workspace:packages/host"
   dependencies:
@@ -5400,6 +5400,7 @@ __metadata:
     "@jupyterlab/application": ^4.3.1
     "@jupyterlab/builder": ^4.2.6
     "@jupyterlab/settingregistry": ^4.3.1
+    jupyter-iframe-commands-host: 0.1.0
   languageName: unknown
   linkType: soft
 
