@@ -48,8 +48,8 @@
     "schemaDir": "schema"
   },
   "dependencies": {
-    "@jupyterlab/application": "^4.3.1",
-    "@jupyterlab/settingregistry": "^4.3.1",
+    "@jupyterlab/application": "^4.2.6",
+    "@jupyterlab/settingregistry": "^4.2.6",
     "jupyter-iframe-commands-host": "0.1.0"
   },
   "devDependencies": {

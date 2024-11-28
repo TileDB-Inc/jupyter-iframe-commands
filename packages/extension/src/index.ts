@@ -8,9 +8,9 @@ import {
 
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
 
-// import { expose, windowEndpoint } from 'comlink';
+import { expose, windowEndpoint } from 'comlink';
 
-// import { CommandBridge } from 'jupyterlab-iframe-commands-host';
+import { CommandBridge } from 'jupyter-iframe-commands-host';
 
 /**
  * A plugin to expose an API for interacting with JupyterLab from a parent page.
@@ -25,9 +25,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     app: JupyterFrontEnd,
     settingRegistry: ISettingRegistry | null
   ) => {
-    console.log(
-      'JupyterLab extension jupyter-iframe-commands is activated wooooo!'
-    );
+    console.log('JupyterLab extension jupyter-iframe-commands is activated!');
 
     if (settingRegistry) {
       settingRegistry
@@ -46,10 +44,10 @@ const plugin: JupyterFrontEndPlugin<void> = {
         });
     }
 
-    // const { commands } = app;
-    // const api = new CommandBridge('jupyterlab', { commands });
-    // const endpoint = windowEndpoint(self.parent);
-    // expose(api, endpoint);
+    const { commands } = app;
+    const api = new CommandBridge('jupyterlab', { commands });
+    const endpoint = windowEndpoint(self.parent);
+    expose(api, endpoint);
   }
 };
 

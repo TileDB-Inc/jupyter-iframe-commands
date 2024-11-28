@@ -299,7 +299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyterlab/application@npm:^4.3.1":
+"@jupyterlab/application@npm:^4.2.6":
   version: 4.3.1
   resolution: "@jupyterlab/application@npm:4.3.1"
   dependencies:
@@ -356,7 +356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyterlab/builder@npm:^4.2.6, @jupyterlab/builder@npm:^4.3.1":
+"@jupyterlab/builder@npm:^4.2.6":
   version: 4.3.1
   resolution: "@jupyterlab/builder@npm:4.3.1"
   dependencies:
@@ -532,7 +532,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jupyterlab/settingregistry@npm:^4.3.1":
+"@jupyterlab/settingregistry@npm:^4.2.6, @jupyterlab/settingregistry@npm:^4.3.1":
   version: 4.3.1
   resolution: "@jupyterlab/settingregistry@npm:4.3.1"
   dependencies:
@@ -5367,7 +5367,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jupyter-iframe-commands-root@workspace:."
   dependencies:
-    "@jupyterlab/builder": ^4.3.1
+    "@jupyterlab/builder": ^4.2.6
     "@types/json-schema": ^7.0.11
     "@types/react": ^18.0.26
     "@types/react-addons-linked-state-mixin": ^0.14.22
@@ -5397,9 +5397,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jupyter-iframe-commands@workspace:packages/extension"
   dependencies:
-    "@jupyterlab/application": ^4.3.1
+    "@jupyterlab/application": ^4.2.6
     "@jupyterlab/builder": ^4.2.6
-    "@jupyterlab/settingregistry": ^4.3.1
+    "@jupyterlab/settingregistry": ^4.2.6
     jupyter-iframe-commands-host: 0.1.0
   languageName: unknown
   linkType: soft
