@@ -21,6 +21,7 @@
     "build": "lerna run build",
     "build:prod": "lerna run build:prod",
     "clean": "lerna run clean",
+    "clean:all": "lerna run clean:all",
     "eslint": "jlpm eslint:check --fix",
     "eslint:check": "eslint . --cache --ext .ts,.tsx",
     "install:extension": "lerna run install:extension",
