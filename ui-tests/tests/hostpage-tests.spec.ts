@@ -4,15 +4,27 @@ const waitForApp = async (page: Page) => {
   await page
     .locator('#jupyterlab')
     .contentFrame()
-    .locator('.jp-LauncherCard-icon')
-    .first()
-    .waitFor();
+    .locator('#jupyterlab-splash')
+    .waitFor({ state: 'detached' });
 
   await page
     .locator('#jupyterlab')
     .contentFrame()
-    .locator('#jupyterlab-splash')
-    .waitFor({ state: 'hidden' });
+    .locator('#galaxy')
+    .waitFor({ state: 'detached' });
+
+  await page
+    .locator('#jupyterlab')
+    .contentFrame()
+    .locator('#main-logo')
+    .waitFor({ state: 'detached' });
+
+  await page
+    .locator('#jupyterlab')
+    .contentFrame()
+    .locator('.jp-LauncherCard-icon')
+    .first()
+    .waitFor();
 };
 
 test.use({ baseURL: 'http://localhost:8080' });
