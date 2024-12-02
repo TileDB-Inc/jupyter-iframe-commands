@@ -17,7 +17,6 @@ jobs:
         github.event.issue.author_association == 'MEMBER'
       ) && github.event.issue.pull_request && contains(github.event.comment.body, 'please update snapshots')
     runs-on: ubuntu-latest
-
     steps:
       - name: React to the triggering comment
         run: |
@@ -68,13 +67,12 @@ jobs:
       - name: Base Setup
         uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
 
-      - name: Install dependencies
-        run: python -m pip install -U "jupyterlab>=4.0.0,<5"
-
-      - name: Install extension
+      - name: Install the dependencies and extension
         run: |
           set -eux
+          python -m pip install -r requirements.txt
           jlpm
+          jlpm build
           python -m pip install .
 
       - uses: jupyterlab/maintainer-tools/.github/actions/update-snapshots@v1
