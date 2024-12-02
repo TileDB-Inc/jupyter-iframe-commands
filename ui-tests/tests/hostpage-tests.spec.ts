@@ -1,4 +1,19 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
+
+const waitForApp = async (page: Page) => {
+  await page
+    .locator('#jupyterlab')
+    .contentFrame()
+    .locator('.jp-LauncherCard-icon')
+    .first()
+    .waitFor();
+
+  await page
+    .locator('#jupyterlab')
+    .contentFrame()
+    .locator('#jupyterlab-splash')
+    .waitFor({ state: 'hidden' });
+};
 
 test.use({ baseURL: 'http://localhost:8080' });
 /**
@@ -7,6 +22,50 @@ test.use({ baseURL: 'http://localhost:8080' });
 test.describe('Commands from host should affect lab in iframe', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('index.html');
+
+    // Make sure left sidebar is hidden
+    await page
+      .locator('#jupyterlab')
+      .contentFrame()
+      .getByText('View', { exact: true })
+      .click();
+
+    await page
+      .locator('#jupyterlab')
+      .contentFrame()
+      .getByText('Appearance')
+      .hover();
+
+    await page
+      .locator('#jupyterlab')
+      .contentFrame()
+      .locator('#jp-mainmenu-view-appearance')
+      .getByText('Show Left Sidebar')
+      .waitFor();
+
+    const leftSidebarOpen = await page
+      .locator('#jupyterlab')
+      .contentFrame()
+      .getByRole('menuitem', { name: 'Show Left Sidebar Ctrl+B' })
+      .getByRole('img')
+      .isVisible();
+
+    if (leftSidebarOpen) {
+      await page
+        .locator('#jupyterlab')
+        .contentFrame()
+        .locator('#jp-mainmenu-view-appearance')
+        .getByText('Show Left Sidebar')
+        .click();
+    }
+
+    await page
+      .locator('#jupyterlab')
+      .contentFrame()
+      .locator('#jp-MainLogo')
+      .click();
+
+    await waitForApp(page);
   });
 
   test('Swich to light theme', async ({ page }) => {
@@ -18,10 +77,7 @@ test.describe('Commands from host should affect lab in iframe', () => {
       .fill(" { 'theme': 'JupyterLab Light' }");
     await page.getByRole('button', { name: 'Submit' }).click();
 
-    await page
-      .frameLocator('#jupyterlab')
-      .locator('#jupyterlab-splash')
-      .waitFor({ state: 'detached' });
+    await waitForApp(page);
 
     expect(await page.screenshot()).toMatchSnapshot('light-theme.png');
   });
@@ -35,10 +91,7 @@ test.describe('Commands from host should affect lab in iframe', () => {
       .fill(" { 'theme': 'JupyterLab Dark' }");
     await page.getByRole('button', { name: 'Submit' }).click();
 
-    await page
-      .frameLocator('#jupyterlab')
-      .locator('#jupyterlab-splash')
-      .waitFor({ state: 'detached' });
+    await waitForApp(page);
 
     expect(await page.screenshot()).toMatchSnapshot('dark-theme.png');
   });
