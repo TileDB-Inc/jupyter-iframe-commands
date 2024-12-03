@@ -7,6 +7,7 @@ import {
 } from '@jupyterlab/application';
 
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
+import { ReadonlyPartialJSONObject } from '@lumino/coreutils';
 
 import { expose, windowEndpoint } from 'comlink';
 
@@ -24,6 +25,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     settingRegistry: ISettingRegistry | null
   ) => {
     console.log('JupyterLab extension jupyter-iframe-commands is activated!');
+    const { commands } = app;
 
     if (settingRegistry) {
       settingRegistry
@@ -42,10 +44,9 @@ const plugin: JupyterFrontEndPlugin<void> = {
         });
     }
 
-    // const { commands } = app;
-    const sendToIframe = (command: string, args: string) => {
-      console.log('command', command);
-    };
+    function sendToIframe(command: string, args: ReadonlyPartialJSONObject) {
+      commands.execute(command, args);
+    }
 
     const endpoint = windowEndpoint(self.parent);
     expose(sendToIframe, endpoint);
