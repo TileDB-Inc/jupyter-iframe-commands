@@ -44,12 +44,17 @@ const plugin: JupyterFrontEndPlugin<void> = {
         });
     }
 
-    function sendToIframe(command: string, args: ReadonlyPartialJSONObject) {
-      commands.execute(command, args);
-    }
+    const api = {
+      sendToIframe(command: string, args: ReadonlyPartialJSONObject) {
+        commands.execute(command, args);
+      },
+      listCommands() {
+        console.log('Commands: ', commands.listCommands());
+      }
+    };
 
     const endpoint = windowEndpoint(self.parent);
-    expose(sendToIframe, endpoint);
+    expose(api, endpoint);
   }
 };
 

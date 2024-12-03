@@ -10,6 +10,10 @@
 
       const commandBridge = new CommandBridge('jupyterlab').commandBridge;
 
+      document.getElementById('list-commands').addEventListener('click', () => {
+        commandBridge.listCommands();
+      });
+
       document.getElementById('commands').addEventListener('submit', e => {
         e.preventDefault();
         const command = document.querySelector('input[name="command"]').value;
@@ -18,7 +22,7 @@
         const args = document
           .querySelector('input[name="args"]')
           .value.replace(/'/g, '"');
-        commandBridge(command, args ? JSON.parse(args) : {});
+        commandBridge.sendToIframe(command, args ? JSON.parse(args) : {});
       });
     </script>
   </head>
@@ -33,6 +37,8 @@
           <input type="text" name="args" placeholder="Enter args (optional)" />
           <button type="submit">Submit</button>
         </form>
+
+        <button id="list-commands">List Commands</button>
       </div>
     </div>
 
