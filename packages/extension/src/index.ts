@@ -52,7 +52,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     };
 
     const endpoint = windowEndpoint(self.parent);
-    expose(api, endpoint);
+    expose(sendToIframe, endpoint);
   }
 };
 
