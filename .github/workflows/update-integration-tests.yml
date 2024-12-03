@@ -74,6 +74,7 @@ jobs:
         run: |
           jlpm
           jlpm build
+
           pip install -e .
           jupyter labextension develop . --overwrite
 
