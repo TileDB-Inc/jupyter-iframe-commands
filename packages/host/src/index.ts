@@ -16,10 +16,10 @@ declare global {
  * A bridge to expose actions on JupyterLab commands.
  */
 export class CommandBridge {
-  constructor(iframeId: string, options: CommandBridge.IOptions) {
+  constructor(iframeId: string) {
     this._iframe = document.getElementById(iframeId) as HTMLIFrameElement;
 
-    this._commands = options.commands;
+    // this._commands = options.commands;
 
     if (!this._iframe) {
       console.error('iframe not found');
@@ -38,18 +38,22 @@ export class CommandBridge {
 
     // For demo purposes for now, and to make it easier to test the commands
     // via the dev tools
-    window.commandBridge = this._commandBridge;
+    // window.commandBridge = this._commandBridge;
   }
 
-  async execute(command: string, args?: ReadonlyPartialJSONObject) {
-    return this._commands.execute(command, args);
+  getBridge() {
+    return this._commandBridge;
   }
 
-  async listCommands(): Promise<string[]> {
-    return this._commands.listCommands();
-  }
+  // async execute(command: string, args?: ReadonlyPartialJSONObject) {
+  //   return this._commands.execute(command, args);
+  // }
 
-  private _commands: CommandRegistry;
+  // async listCommands(): Promise<string[]> {
+  //   return this._commands.listCommands();
+  // }
+
+  // private _commands: CommandRegistry;
   private _iframe: HTMLIFrameElement | null;
   private _childWindow: Window | undefined | null;
   private _endpoint: Endpoint | undefined;
