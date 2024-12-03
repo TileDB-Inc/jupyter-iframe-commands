@@ -22,7 +22,7 @@
         const args = document
           .querySelector('input[name="args"]')
           .value.replace(/'/g, '"');
-        commandBridge.sendToIframe(command, args ? JSON.parse(args) : {});
+        commandBridge.execute(command, args ? JSON.parse(args) : {});
       });
     </script>
   </head>

@@ -45,7 +45,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     }
 
     const api = {
-      sendToIframe(command: string, args: ReadonlyPartialJSONObject) {
+      execute(command: string, args: ReadonlyPartialJSONObject) {
         commands.execute(command, args);
       },
       listCommands() {
