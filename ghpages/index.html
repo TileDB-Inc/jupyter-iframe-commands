@@ -5,38 +5,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Demo</title>
-    <script type="module">
-      import * as Comlink from 'https://unpkg.com/comlink/dist/esm/comlink.mjs';
-
-      const iframe = document.getElementById('jupyterlab');
-
-      const childWindow = iframe.contentWindow;
-
-      const endpoint = Comlink.windowEndpoint(childWindow);
-      const commandBridge = Comlink.wrap(endpoint);
-
-      // For demo purposes for now, and to make it easier to test the commands
-      // via the dev tools
-      window.commandBridge = commandBridge;
-
-      // Test getting the list of commands
-      setTimeout(async () => {
-        const result = await commandBridge.listCommands();
-        console.log('List of commands:', result);
-      }, 2000);
-    </script>
+    <script type="module" src="src/main.js"></script>
   </head>
   <body>
     <div
       style="display: flex; align-items: center; justify-content: space-around"
     >
-      <h1>Demo</h1>
+      <h1>Local Demo</h1>
       <div>
         <form id="commands">
           <input type="text" name="command" placeholder="Enter a command" />
           <input type="text" name="args" placeholder="Enter args (optional)" />
           <button type="submit">Submit</button>
         </form>
+
+        <button id="list-commands">List Commands</button>
       </div>
     </div>
 
@@ -46,18 +29,5 @@
       sandbox="allow-scripts allow-same-origin"
       style="width: 100%; height: 100vh"
     ></iframe>
-
-    <script>
-      document.getElementById('commands').addEventListener('submit', e => {
-        e.preventDefault();
-        const command = document.querySelector('input[name="command"]').value;
-
-        // Single quotes cause an error
-        const args = document
-          .querySelector('input[name="args"]')
-          .value.replace(/'/g, '"');
-        commandBridge.execute(command, args ? JSON.parse(args) : {});
-      });
-    </script>
   </body>
 </html>
