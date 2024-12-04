@@ -1,7 +1,6 @@
 // Copyright (c) TileDB, Inc.
 // Distributed under the terms of the Modified BSD License.
 import { Endpoint, Remote, windowEndpoint, wrap } from 'comlink';
-import { CommandRegistry } from '@lumino/commands';
 
 /**
  * A bridge to expose actions on JupyterLab commands.
@@ -30,10 +29,4 @@ export class CommandBridge {
   private _childWindow: Window | undefined | null;
   private _endpoint: Endpoint | undefined;
   commandBridge: Remote<unknown> | undefined;
-}
-
-export namespace CommandBridge {
-  export interface IOptions {
-    commands: CommandRegistry;
-  }
 }
