@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start:lab": "jupyter lab --config jupyter_server_test_config.py",
-    "start:server": "python -m http.server -d ../demo -b 127.0.0.1 8080",
+    "start:server": "npx web-dev-server -p 8080 --root-dir ../demo --node-resolve",
     "test": "jlpm playwright test",
     "test:update": "jlpm playwright test --update-snapshots"
   },

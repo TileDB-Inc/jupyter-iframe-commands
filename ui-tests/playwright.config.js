@@ -5,6 +5,10 @@ const baseConfig = require('@jupyterlab/galata/lib/playwright-config');
 
 module.exports = {
   ...baseConfig,
+  retries: process.env.CI ? 2 : 0,
+  use: {
+    trace: 'on-first-retry'
+  },
   webServer: [
     {
       command: 'jlpm start:lab',
