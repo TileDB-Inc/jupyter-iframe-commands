@@ -163,6 +163,12 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
       - name: Install the dependencies
         run: |
           set -eux
@@ -171,9 +177,15 @@ jobs:
           jlpm build
           python -m pip install .
 
-      - name: Build the JupyterLite site
+      - name: Build the JupyterLite assets
         run: |
           jupyter lite build --contents README.md --output-dir ghpages/public/lite
+
+      - name: Install and build Vite dependencies
+        working-directory: ghpages
+        run: |
+          jlpm
+          jlpm build
 
       - name: Upload artifact
         id: deployment
