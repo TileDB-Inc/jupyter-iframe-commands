@@ -49,7 +49,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
         commands.execute(command, args);
       },
       listCommands() {
-        console.log('Commands: ', commands.listCommands());
+        return commands.listCommands();
       }
     };
 

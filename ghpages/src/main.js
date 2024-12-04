@@ -3,8 +3,8 @@ import { CommandBridge } from 'jupyter-iframe-commands-host';
 
 const commandBridge = new CommandBridge('jupyterlab').commandBridge;
 
-document.getElementById('list-commands').addEventListener('click', () => {
-  commandBridge.listCommands();
+document.getElementById('list-commands').addEventListener('click', async () => {
+  console.log('Commands: ', await commandBridge.listCommands());
 });
 
 document.getElementById('commands').addEventListener('submit', e => {
