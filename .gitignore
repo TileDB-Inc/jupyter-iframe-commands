@@ -130,3 +130,6 @@ ghpages/lite
 
 # nx cache files
 .nx
+
+# ghpages deployment debugging
+artifact
