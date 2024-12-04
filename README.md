@@ -54,9 +54,9 @@ Examples of commands with arguments:
 To run the demo on a local Jupyter Lab instance:
 
 - Follow the [development install instructions](#development-install)
-- `cd demo`
-- `npx http-server`
-- in another terminal (also in the `demo` directory), run: `jupyter lab --config ./jupyter_server_config.py`
+- Run: `jlpm start:lab`
+- In another terminal
+- Run: `jlpm start:server`
 
 Open http://localhost:8080 in your browser.
 

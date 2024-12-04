@@ -31,7 +31,8 @@
     "prettier": "jlpm prettier:base --write --list-different",
     "prettier:base": "prettier \"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\"",
     "prettier:check": "jlpm prettier:base --check",
-    "start": "npx web-dev-server -p 8080 --open /demo/ --node-resolve",
+    "start:lab": "jupyter lab --config demo/jupyter_server_config.py",
+    "start:server": "npx web-dev-server -p 8080 --root-dir demo --node-resolve",
     "stylelint": "jlpm stylelint:check --fix",
     "stylelint:check": "stylelint --cache \"style/**/*.css\""
   },
