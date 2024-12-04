@@ -173,7 +173,7 @@ jobs:
 
       - name: Build the JupyterLite site
         run: |
-          jupyter lite build --contents README.md --output-dir ghpages/lite
+          jupyter lite build --contents README.md --output-dir ghpages/public/lite
 
       - name: Upload artifact
         id: deployment
