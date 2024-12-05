@@ -51,10 +51,10 @@
     "schemaDir": "schema"
   },
   "dependencies": {
-    "@jupyterlab/application": "^4.2.6",
-    "@jupyterlab/settingregistry": "^4.2.6"
+    "@jupyterlab/application": "^4.3.2",
+    "@jupyterlab/settingregistry": "^4.3.2"
   },
   "devDependencies": {
-    "@jupyterlab/builder": "^4.2.6"
+    "@jupyterlab/builder": "^4.3.2"
   }
 }
