@@ -9,9 +9,6 @@
     "test": "jlpm playwright test",
     "test:update": "jlpm playwright test --update-snapshots"
   },
-  "dependencies": {
-    "jupyter-iframe-commands-host": "0.1.0"
-  },
   "devDependencies": {
     "@jupyterlab/galata": "^5.0.5",
     "@playwright/test": "^1.37.0",
