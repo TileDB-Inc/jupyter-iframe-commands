@@ -3,3 +3,19 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.main {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1.25rem;
+}
+
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+button {
+  width: fit-content;
+}

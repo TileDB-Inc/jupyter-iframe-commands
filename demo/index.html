@@ -4,15 +4,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
     <title>Demo</title>
     <script type="module" src="src/main.js"></script>
   </head>
   <body>
-    <div
-      style="display: flex; align-items: center; justify-content: space-around"
-    >
+    <div class="demo-top">
       <h1>%VITE_TITLE% Demo</h1>
-      <div>
+      <button id="instructions">Instructions</button>
+      <div class="input-area">
         <form id="commands">
           <input type="text" name="command" placeholder="Enter a command" />
           <input type="text" name="args" placeholder="Enter args (optional)" />
