@@ -5,12 +5,16 @@
   "private": true,
   "scripts": {
     "start:lab": "jupyter lab --config jupyter_server_test_config.py",
-    "start:server": "npx web-dev-server -p 8080 --root-dir ../demo --node-resolve",
+    "start:server": "jlpm web-dev-server -p 8080 --root-dir ../demo --node-resolve",
     "test": "jlpm playwright test",
     "test:update": "jlpm playwright test --update-snapshots"
   },
+  "dependencies": {
+    "jupyter-iframe-commands-host": "0.1.0"
+  },
   "devDependencies": {
     "@jupyterlab/galata": "^5.0.5",
-    "@playwright/test": "^1.37.0"
+    "@playwright/test": "^1.37.0",
+    "@web/dev-server": "^0.4.6"
   }
 }
