@@ -6520,9 +6520,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jupyter-iframe-commands-demo@workspace:ghpages":
+"jupyter-iframe-commands-demo@workspace:demo":
   version: 0.0.0-use.local
-  resolution: "jupyter-iframe-commands-demo@workspace:ghpages"
+  resolution: "jupyter-iframe-commands-demo@workspace:demo"
   dependencies:
     jupyter-iframe-commands-host: 0.1.0
     typescript: ~5.6.2
@@ -10112,8 +10112,8 @@ __metadata:
   linkType: hard
 
 "terser@npm:^5.26.0":
-  version: 5.36.0
-  resolution: "terser@npm:5.36.0"
+  version: 5.37.0
+  resolution: "terser@npm:5.37.0"
   dependencies:
     "@jridgewell/source-map": ^0.3.3
     acorn: ^8.8.2
@@ -10121,7 +10121,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: 489afd31901a2b170f7766948a3aa0e25da0acb41e9e35bd9f9b4751dfa2fc846e485f6fb9d34f0839a96af77f675b5fbf0a20c9aa54e0b8d7c219cf0b55e508
+  checksum: 70c06a8ce1288ff4370a7e481beb6fc8b22fc4995371479f49df1552aa9cf8e794ace66e1da6e87057eda1745644311213f5043bda9a06cf55421eff68b3ac06
   languageName: node
   linkType: hard
 

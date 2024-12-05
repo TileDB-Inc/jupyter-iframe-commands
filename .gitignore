@@ -125,7 +125,7 @@ dmypy.json
 .yarn/
 
 # lite build for demo
-ghpages/public/lite
+demo/public/lite
 .jupyterlite.doit.db
 
 # nx cache files

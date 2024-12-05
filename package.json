@@ -16,10 +16,11 @@
   "author": "QuantStack",
   "workspaces": [
     "packages/*",
-    "ghpages/"
+    "demo/"
   ],
   "scripts": {
     "build": "lerna run build",
+    "build:lite": "jupyter lite build --contents README.md --output-dir demo/public/lite",
     "build:prod": "lerna run build:prod",
     "clean": "lerna run clean",
     "clean:all": "lerna run clean:all",
