@@ -5,10 +5,8 @@ import {
   JupyterFrontEnd,
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
-
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { ReadonlyPartialJSONObject } from '@lumino/coreutils';
-
 import { expose, windowEndpoint } from 'comlink';
 
 /**

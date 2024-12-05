@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
 import { CommandBridge } from 'jupyter-iframe-commands-host';
 
-const commandBridge = new CommandBridge('jupyterlab').commandBridge;
+const commandBridge = new CommandBridge({ iframeId: 'jupyterlab' })
+  .commandBridge;
 
 document.getElementById('list-commands').addEventListener('click', async () => {
   console.log('Commands: ', await commandBridge.listCommands());

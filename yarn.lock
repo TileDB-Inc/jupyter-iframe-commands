@@ -6465,7 +6465,6 @@ __metadata:
     "@jupyterlab/application": ^4.2.6
     "@jupyterlab/builder": ^4.2.6
     "@jupyterlab/settingregistry": ^4.2.6
-    jupyter-iframe-commands-host: 0.1.0
   languageName: unknown
   linkType: soft
 

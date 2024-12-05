@@ -6,7 +6,7 @@ import { Endpoint, Remote, windowEndpoint, wrap } from 'comlink';
  * A bridge to expose actions on JupyterLab commands.
  */
 export class CommandBridge {
-  constructor(iframeId: string) {
+  constructor({ iframeId }: CommandBridge.IOptions) {
     this._iframe = document.getElementById(iframeId) as HTMLIFrameElement;
 
     if (!this._iframe) {
@@ -29,4 +29,10 @@ export class CommandBridge {
   private _childWindow: Window | undefined | null;
   private _endpoint: Endpoint | undefined;
   commandBridge: Remote<unknown> | undefined;
+}
+
+export namespace CommandBridge {
+  export interface IOptions {
+    iframeId: string;
+  }
 }
