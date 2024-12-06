@@ -16,10 +16,11 @@
   "author": "QuantStack",
   "workspaces": [
     "packages/*",
-    "ghpages/"
+    "demo/"
   ],
   "scripts": {
     "build": "lerna run build",
+    "build:lite": "jupyter lite build --contents README.md --output-dir demo/public/lite",
     "build:prod": "lerna run build:prod",
     "clean": "lerna run clean",
     "clean:all": "lerna run clean:all",
@@ -31,8 +32,6 @@
     "prettier": "jlpm prettier:base --write --list-different",
     "prettier:base": "prettier \"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\"",
     "prettier:check": "jlpm prettier:base --check",
-    "start:lab": "jupyter lab --config demo/jupyter_server_config.py",
-    "start:server": "npx web-dev-server -p 8080 --root-dir demo --node-resolve",
     "stylelint": "jlpm stylelint:check --fix",
     "stylelint:check": "stylelint --cache \"style/**/*.css\""
   },
@@ -43,7 +42,6 @@
     "@types/react-addons-linked-state-mixin": "^0.14.22",
     "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^6.1.0",
-    "@web/dev-server": "^0.4.6",
     "css-loader": "^6.7.1",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
