@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite",
     "build": "tsc && vite build --base=./",
+    "build:ghpages": "tsc && VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite build --base=./",
     "preview": "VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite preview",
     "start:lab": "jupyter lab --config jupyter_server_config.py",
     "start:lite": "jlpm dev",

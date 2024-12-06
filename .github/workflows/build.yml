@@ -187,7 +187,7 @@ jobs:
         working-directory: demo
         run: |
           jlpm
-          jlpm build
+          jlpm build:ghpages
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
