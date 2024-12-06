@@ -10,6 +10,7 @@ document.getElementById('instructions').addEventListener('click', async () => {
   let { value: command } = await Swal.fire({
     html: `
     <p>To use this demo simply enter a command in the command input and any arguments for that command in the args input.</p>
+    <p>Click the <code style="background-color: lightsteelblue;">List Commands</code> button to see a list of available commands.</p>
     <div style="display: flex; gap: 0.4rem; flex-direction: column; text-align: left; font-size: 0.9rem;">
     <p style="font-weight: bold; padding: 0;">Some commands are listed here for convenience:</p>
     <ul style="list-style-type: none; display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem; margin: 0;">
@@ -59,7 +60,8 @@ document.getElementById('instructions').addEventListener('click', async () => {
 });
 
 document.getElementById('list-commands').addEventListener('click', async () => {
-  console.log('Commands: ', await commandBridge.listCommands());
+  const commands = await commandBridge.listCommands();
+  await Swal.fire({ html: commands.map(item => `<br>${item}`).join('') });
 });
 
 document.getElementById('commands').addEventListener('submit', e => {
