@@ -22,6 +22,7 @@
     "build": "lerna run build",
     "build:lite": "jupyter lite build --contents README.md --output-dir demo/public/lite",
     "build:prod": "lerna run build:prod",
+    "bump:js:version": "lerna version --no-push --force-publish --no-git-tag-version --yes",
     "clean": "lerna run clean",
     "clean:all": "lerna run clean:all",
     "eslint": "jlpm eslint:check --fix",
