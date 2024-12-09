@@ -76,26 +76,30 @@ document.getElementById('instructions').addEventListener('click', () => {
   instructionsDialog.showModal();
 });
 
-document.getElementById('command-select-submit').addEventListener('click', (e) => {
-  e.preventDefault();
-  const select = document.getElementById('command-select');
-  let command = select.value;
-  
-  if (command) {
-    let args;
-    if (command.includes('Light') || command.includes('Dark')) {
-      args = `{"theme": "${command}"}`;
-      command = 'apputils:change-theme';
+document
+  .getElementById('command-select-submit')
+  .addEventListener('click', e => {
+    e.preventDefault();
+    const select = document.getElementById('command-select');
+    let command = select.value;
+
+    if (command) {
+      let args;
+      if (command.includes('Light') || command.includes('Dark')) {
+        args = `{"theme": "${command}"}`;
+        command = 'apputils:change-theme';
+      }
+      commandBridge.execute(command, args ? JSON.parse(args) : {});
     }
-    commandBridge.execute(command, args ? JSON.parse(args) : {});
-  }
-  instructionsDialog.close();
-});
+    instructionsDialog.close();
+  });
 
 document.getElementById('list-commands').addEventListener('click', async () => {
   const commands = await commandBridge.listCommands();
   commands.sort();
-  document.getElementById('commands-list').innerHTML = commands.map(item => `<div>${item}</div>`).join('');
+  document.getElementById('commands-list').innerHTML = commands
+    .map(item => `<div>${item}</div>`)
+    .join('');
   listCommandsDialog.showModal();
 });
 
