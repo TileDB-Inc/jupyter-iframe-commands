@@ -5876,7 +5876,6 @@ __metadata:
   resolution: "jupyter-iframe-commands-demo@workspace:demo"
   dependencies:
     jupyter-iframe-commands-host: 0.1.0
-    sweetalert2: ^11.14.5
     typescript: ~5.6.2
     vite: ^6.0.1
   languageName: unknown
@@ -9114,13 +9113,6 @@ __metadata:
   version: 1.0.0
   resolution: "svg-tags@npm:1.0.0"
   checksum: 407e5ef87cfa2fb81c61d738081c2decd022ce13b922d035b214b49810630bf5d1409255a4beb3a940b77b32f6957806deff16f1bf0ce1ab11c7a184115a0b7f
-  languageName: node
-  linkType: hard
-
-"sweetalert2@npm:^11.14.5":
-  version: 11.14.5
-  resolution: "sweetalert2@npm:11.14.5"
-  checksum: 6c7f37120f6d5143214279a50c3b6db244222b0b4ba14751ef03e4678e5020e8ea42f0019c0719d6753883bf283b3a3bf2dc00fc62dd37e63c8f31f8041b7978
   languageName: node
   linkType: hard
 
