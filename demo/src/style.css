@@ -57,23 +57,23 @@ dialog button {
   transition: background-color 0.2s;
 }
 
-dialog button[value="default"] {
+dialog button[value='default'] {
   background-color: #007bff;
   color: white;
 }
 
-dialog button[value="default"]:hover {
+dialog button[value='default']:hover {
   background-color: #0056b3;
 }
 
-dialog button[value="cancel"],
-dialog button[value="close"] {
+dialog button[value='cancel'],
+dialog button[value='close'] {
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
 }
 
-dialog button[value="cancel"]:hover,
-dialog button[value="close"]:hover {
+dialog button[value='cancel']:hover,
+dialog button[value='close']:hover {
   background-color: #e9ecef;
 }
 
