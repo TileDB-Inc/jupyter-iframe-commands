@@ -5875,13 +5875,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jupyter-iframe-commands-demo@workspace:demo"
   dependencies:
-    jupyter-iframe-commands-host: ^0.0.1
+    jupyter-iframe-commands-host: ^0.0.0
     typescript: ~5.6.2
     vite: ^6.0.1
   languageName: unknown
   linkType: soft
 
-"jupyter-iframe-commands-host@^0.0.1, jupyter-iframe-commands-host@workspace:packages/host":
+"jupyter-iframe-commands-host@^0.0.0, jupyter-iframe-commands-host@workspace:packages/host":
   version: 0.0.0-use.local
   resolution: "jupyter-iframe-commands-host@workspace:packages/host"
   dependencies:

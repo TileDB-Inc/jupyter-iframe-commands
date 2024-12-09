@@ -1,6 +1,6 @@
 {
   "name": "jupyter-iframe-commands-root",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "description": "A JupyterLab extension to facilitate integration with a host page via an IFrame",
   "keywords": [
