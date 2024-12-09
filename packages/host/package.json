@@ -1,6 +1,6 @@
 {
   "name": "jupyter-iframe-commands-host",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "\"A JupyterLab extension to facilitate integration with a host page via an IFrame\"",
   "homepage": "https://github.com/TileDB-Inc/jupyter-iframe-commands#readme",
   "bugs": {

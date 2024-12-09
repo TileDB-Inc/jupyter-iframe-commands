@@ -1,6 +1,6 @@
 {
   "name": "jupyter-iframe-commands-root",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "description": "A JupyterLab extension to facilitate integration with a host page via an IFrame",
   "keywords": [
@@ -16,7 +16,7 @@
   "author": "QuantStack",
   "workspaces": [
     "packages/*",
-    "demo/"
+    "demo"
   ],
   "scripts": {
     "build": "lerna run build",
