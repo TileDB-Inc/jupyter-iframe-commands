@@ -5,13 +5,16 @@ from pathlib import Path
 from subprocess import run
 
 
+BUMP_VERSION_CMD = "lerna version --no-push --force-publish --no-git-tag-version --yes"
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("version")
     args = parser.parse_args()
     version = args.version
 
-    run(f"jlpm bump:js:version {version}", shell=True, check=True)
+    run(f"{BUMP_VERSION_CMD} {version}", shell=True, check=True)
 
     root = Path(__file__).parent.parent
     version_file = root / "packages" / "extension" / "package.json"
