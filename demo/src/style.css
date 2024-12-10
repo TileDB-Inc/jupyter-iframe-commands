@@ -12,7 +12,9 @@ body {
     'Helvetica Neue', Arial, sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
-}
+  display: flex;
+  flex-direction: column;
+  }
 
 .demo-top {
   display: flex;
@@ -186,11 +188,12 @@ dialog button[value='close']:hover {
 
 /* Responsive iframe */
 #jupyterlab {
-  width: 100%;
+  width: calc(100% - 0.5vw);
   height: calc(100vh - 200px);
   border: none;
   border-radius: 8px;
-  margin-top: 1rem;
+  margin-top: 0.25vw;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-self: center;
 }
