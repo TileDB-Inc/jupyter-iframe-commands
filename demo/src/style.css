@@ -14,7 +14,7 @@ body {
   background-color: var(--background-color);
   display: flex;
   flex-direction: column;
-  }
+}
 
 .demo-top {
   display: flex;
