@@ -5,7 +5,7 @@ from pathlib import Path
 from subprocess import run
 
 
-BUMP_VERSION_CMD = "lerna version --no-push --force-publish --no-git-tag-version --yes"
+BUMP_VERSION_CMD = "npx lerna version --no-push --force-publish --no-git-tag-version --yes"
 
 
 def main():
