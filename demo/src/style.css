@@ -157,11 +157,19 @@ dialog button[value='close'] {
   background-color: transparent;
   color: var(--text-color);
   border: 1px solid var(--border-color);
+  align-items: right;
 }
 
 dialog button[value='cancel']:hover,
 dialog button[value='close']:hover {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 #commands-list {
