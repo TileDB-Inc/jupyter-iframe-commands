@@ -125,10 +125,7 @@ modeRadios.forEach(radio => {
     const isLite = currentUrl.pathname.includes('lite');
 
     if (isLite) {
-      currentUrl = isNotebookView
-        ? './lite/notebooks/index.html'
-        : './lite/lab';
-      currentUrl.search = isNotebookView ? '?path=example.ipynb' : '';
+      currentUrl = `./lite/${isNotebookView ? 'notebooks/index.html?path=example.ipynb' : 'lab'}`;
     } else {
       currentUrl.pathname = isNotebookView
         ? '/notebooks/example.ipynb'
