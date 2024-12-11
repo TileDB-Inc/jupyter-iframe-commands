@@ -181,7 +181,7 @@ jobs:
 
       - name: Build the JupyterLite assets
         run: |
-          jupyter lite build --contents README.md --output-dir demo/public/lite
+          jupyter lite build --contents README.md --contents example.ipynb --output-dir demo/public/lite
 
       - name: Install and build Vite dependencies
         working-directory: demo
