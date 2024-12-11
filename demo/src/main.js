@@ -121,13 +121,13 @@ const modeRadios = document.querySelectorAll('input[name="mode"]');
 modeRadios.forEach(radio => {
   radio.addEventListener('change', e => {
     const isNotebookView = e.target.value === 'notebook';
-    const currentUrl = new URL(iframe.src);
+    let currentUrl = new URL(iframe.src);
     const isLite = currentUrl.pathname.includes('lite');
 
     if (isLite) {
-      currentUrl.pathname = isNotebookView
-        ? '/lite/notebooks/index.html'
-        : '/lite/lab';
+      currentUrl = isNotebookView
+        ? './lite/notebooks/index.html'
+        : './lite/lab';
       currentUrl.search = isNotebookView ? '?path=example.ipynb' : '';
     } else {
       currentUrl.pathname = isNotebookView
