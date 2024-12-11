@@ -113,3 +113,27 @@ document.getElementById('commands').addEventListener('submit', e => {
     .value.replace(/'/g, '"');
   commandBridge.execute(command, args ? JSON.parse(args) : {});
 });
+
+// Handle mode toggle
+const iframe = document.getElementById('jupyterlab');
+const modeRadios = document.querySelectorAll('input[name="mode"]');
+
+modeRadios.forEach(radio => {
+  radio.addEventListener('change', e => {
+    const isNotebookView = e.target.value === 'notebook';
+    const currentUrl = new URL(iframe.src);
+    const isLite = currentUrl.pathname.includes('lite');
+
+    if (isLite) {
+      currentUrl.pathname = isNotebookView ? '/notebooks/index.html' : '/lab';
+      currentUrl.search = isNotebookView ? '?path=example.ipynb' : '';
+    } else {
+      currentUrl.pathname = isNotebookView
+        ? '/notebooks/example.ipynb'
+        : '/lab';
+      currentUrl.search = '';
+    }
+
+    iframe.src = currentUrl.toString();
+  });
+});
