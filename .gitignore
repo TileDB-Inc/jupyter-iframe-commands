@@ -134,3 +134,6 @@ demo/public/lite
 # ghpages deployment debugging
 artifact
 Untitled*.ipynb
+
+# Pixi environments
+.pixi

@@ -223,30 +223,32 @@ dialog button[value='close']:hover {
   cursor: pointer;
   padding: 4px 12px;
   border-radius: 4px;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
 .mode-toggle label:hover {
   background-color: #e4e4e4;
 }
 
-.mode-toggle input[type="radio"] {
+.mode-toggle input[type='radio'] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.mode-toggle input[type="radio"]:checked + span {
+.mode-toggle input[type='radio']:checked + span {
   color: white;
 }
 
-.mode-toggle input[type="radio"]:focus + span {
+.mode-toggle input[type='radio']:focus + span {
   outline: 2px solid #3498db;
   outline-offset: 2px;
 }
 
-.mode-toggle label:has(input[type="radio"]:checked) {
+.mode-toggle label:has(input[type='radio']:checked) {
   background-color: #3498db;
   color: white;
 }
