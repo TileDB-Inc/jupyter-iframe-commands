@@ -47,6 +47,10 @@ await bridge.commandBridge.execute('application:toggle-left-area');
 await bridge.commandBridge.execute('apputils:change-theme', {
   theme: 'JupyterLab Dark'
 });
+
+// List available JupyterLab commands
+const commands = await bridge.commandBridge.listCommands();
+console.log(commands);
 ```
 
 ### Extension Package
