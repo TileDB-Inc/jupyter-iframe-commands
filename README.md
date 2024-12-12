@@ -71,14 +71,14 @@ pip install jupyter-iframe-commands
 
 ### Customizing the user interface
 
-The Jupyter UI can be customized in different ways
+The Jupyter UI can be customized in different ways.
 
 #### Example
 
 On the following screenshot:
 
-- `@jupyterlab/mainmenu-extension` is disabled
-- `@jupyter-notebook/lab-extension` is disabled
+- `@jupyterlab/mainmenu-extension` is disabled to remove the menu entries
+- `@jupyter-notebook/lab-extension` is disabled to remove the interface switcher from the notebook toolbar
 - The `visible` property of the `@jupyter-notebook/application-extension:top` plugin is set to `no`, to hide the top bar
 
 ![a screenshot showing Jupyter Notebook running in an iframe](https://github.com/user-attachments/assets/cf4a64c0-9a2c-4614-93da-e1a2467711d9)
