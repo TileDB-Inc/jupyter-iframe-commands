@@ -1,0 +1,5 @@
+{
+  "@jupyter-notebook/application-extension:top": {
+    "visible": "no"
+  }
+}
