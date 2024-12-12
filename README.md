@@ -1,6 +1,7 @@
 # jupyter-iframe-commands
 
 [![Github Actions Status](https://github.com/TileDB-Inc/jupyter-iframe-commands/workflows/Build/badge.svg)](https://github.com/TileDB-Inc/jupyter-iframe-commands/actions/workflows/build.yml)
+[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://tiledb-inc.github.io/jupyter-iframe-commands/)
 
 A JupyterLab extension to facilitate integration with a host page via an IFrame
 
@@ -9,19 +10,60 @@ A JupyterLab extension to facilitate integration with a host page via an IFrame
 
 ## Requirements
 
-- JupyterLab >= 4.0.0
-
-## Install
-
-To install the extension
-
-- Clone the repo to your local environment
-- Change directory to the `jupyter-iframe-commands` directory
-- execute: `pip install .`
+- JupyterLab >= 4.0.0 or Jupyter Notebook >= 7.0.0
 
 ## Usage
 
-Try out a preview [here](https://tiledb-inc.github.io/jupyter-iframe-commands/)
+This repository provides two packages:
+
+- The extension package: `jupyter-iframe-commands`. This is the JupyterLab extension that provides the API to execute JupyterLab commands from a host page.
+- The host package: `jupyter-iframe-commands-host`. This is a package that provides a bridge to communicate with JupyterLab running in an iframe.
+
+### Host Package
+
+The host package provides a bridge to communicate with JupyterLab running in an iframe. To use it in your application:
+
+1. Install the package:
+
+```bash
+npm install jupyter-iframe-commands-host
+```
+
+2. Import and use the `CommandBridge`:
+
+```typescript
+import { CommandBridge } from 'jupyter-iframe-commands-host';
+
+// Initialize the bridge with your iframe ID
+const bridge = new CommandBridge({
+  iframeId: 'your-jupyter-iframe-id'
+});
+
+// Execute JupyterLab commands
+// Example: Toggle the left sidebar
+await bridge.commandBridge.execute('application:toggle-left-area');
+
+// Example: Change the theme
+await bridge.commandBridge.execute('apputils:change-theme', {
+  theme: 'JupyterLab Dark'
+});
+```
+
+### Extension Package
+
+The JupyterLab extension should be installed in the JupyterLab environment running in the IFrame.
+
+To install the extension:
+
+```bash
+pip install jupyter-iframe-commands
+```
+
+### Try it in your browser
+
+Try out the extension in your browser:
+
+[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://tiledb-inc.github.io/jupyter-iframe-commands/)
 
 ### Available Commands
 
@@ -55,11 +97,19 @@ Examples of commands with arguments:
 
 To run the demo on a local Jupyter Lab instance:
 
-- Follow the [development install instructions](#development-install)
-- `cd demo`
-- Run: `jlpm start:lab`
-- In another terminal
-- Run: `jlpm start:local`
+1. Follow the [development install instructions](#development-install)
+2. `cd demo`
+3. Start JupyterLab:
+
+```bash
+jlpm start:lab
+```
+
+4. In another terminal, start the demo app:
+
+```bash
+jlpm start:local
+```
 
 Open http://localhost:8080 in your browser.
 
@@ -67,10 +117,17 @@ Open http://localhost:8080 in your browser.
 
 To run the demo on a Jupyter Lite instance:
 
-- Follow the [development install instructions](#development-install)
-- Run: `jlpm build:lite`
-- `cd demo`
-- Run: `jlpm start:lite`
+1. Follow the [development install instructions](#development-install)
+2. `cd demo`
+3. Build and start the demo app:
+
+```bash
+# Build the demo
+jlpm build:ghpages
+
+# Start the development server
+jlpm start:lite
+```
 
 ## Uninstall
 
