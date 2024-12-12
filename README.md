@@ -12,6 +12,12 @@ A JupyterLab extension to facilitate integration with a host page via an IFrame
 
 - JupyterLab >= 4.0.0 or Jupyter Notebook >= 7.0.0
 
+### Try it in your browser
+
+Try out the extension in your browser:
+
+[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://tiledb-inc.github.io/jupyter-iframe-commands/)
+
 ## Usage
 
 This repository provides two packages:
@@ -63,11 +69,31 @@ To install the extension:
 pip install jupyter-iframe-commands
 ```
 
-### Try it in your browser
+### Customizing the user interface
 
-Try out the extension in your browser:
+The Jupyter UI can be customized in different ways
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://tiledb-inc.github.io/jupyter-iframe-commands/)
+#### Example
+
+On the following screenshot:
+
+- `@jupyterlab/mainmenu-extension` is disabled
+- `@jupyter-notebook/lab-extension` is disabled
+- The `visible` property of the `@jupyter-notebook/application-extension:top` plugin is set to `no`, to hide the top bar
+
+![a screenshot showing Jupyter Notebook running in an iframe](https://github.com/user-attachments/assets/cf4a64c0-9a2c-4614-93da-e1a2467711d9)
+
+For the demo in this repo, this configuration is provided via two files:
+
+- `overrides.json`: This file is used to override the default settings of the JupyterLab and Jupyter Notebook applications
+- `jupyter-lite.json`: This file is used to set a list of `disabledExtensions`, which can be used to disabled invidual plugins
+
+#### Configuring JupyterLab
+
+JupyterLab can be configured in a smilar way, using well-known files at specific locations:
+
+- `page_config.json`: https://jupyterlab.readthedocs.io/en/latest/user/directories.html#labconfig-directories
+- `overrides.json`: https://jupyterlab.readthedocs.io/en/latest/user/directories.html#overridesjson
 
 ### Available Commands
 
