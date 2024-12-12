@@ -3,7 +3,7 @@
 [![Github Actions Status](https://github.com/TileDB-Inc/jupyter-iframe-commands/workflows/Build/badge.svg)](https://github.com/TileDB-Inc/jupyter-iframe-commands/actions/workflows/build.yml)
 [![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://tiledb-inc.github.io/jupyter-iframe-commands/)
 
-A JupyterLab extension to facilitate integration with a host page via an IFrame
+A JupyterLab extension to facilitate integration with a host page via an iframe
 
 > [!WARNING]
 > This project is still in an early development stage.
@@ -61,7 +61,7 @@ console.log(commands);
 
 ### Extension Package
 
-The JupyterLab extension should be installed in the JupyterLab environment running in the IFrame.
+The JupyterLab extension should be installed in the JupyterLab environment running in the iframe.
 
 To install the extension:
 
