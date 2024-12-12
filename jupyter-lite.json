@@ -4,7 +4,8 @@
     "disabledExtensions": [
       "@jupyterlab/mainmenu-extension",
       "@jupyterlite/application-extension:logo",
-      "@jupyterlab/help-extension:resources"
+      "@jupyterlab/help-extension:resources",
+      "@jupyter-notebook/lab-extension"
     ]
   }
 }
