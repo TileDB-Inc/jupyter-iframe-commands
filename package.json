@@ -33,7 +33,8 @@
     "prettier:base": "prettier \"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\"",
     "prettier:check": "jlpm prettier:base --check",
     "stylelint": "jlpm stylelint:check --fix",
-    "stylelint:check": "stylelint --cache \"style/**/*.css\""
+    "stylelint:check": "stylelint --cache \"style/**/*.css\"",
+    "watch": "lerna run watch --stream"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^4.3.2",

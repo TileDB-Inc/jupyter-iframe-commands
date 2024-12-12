@@ -43,7 +43,9 @@
     "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
     "clean:lintcache": "rimraf .eslintcache .stylelintcache",
     "install:extension": "jlpm run build",
-    "watch": "tsc -b --watch"
+    "watch": "run-p watch:src watch:labextension",
+    "watch:src": "tsc -w --sourceMap",
+    "watch:labextension": "jupyter labextension watch ."
   },
   "jupyterlab": {
     "extension": true,
