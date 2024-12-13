@@ -119,6 +119,15 @@ Examples of commands with arguments:
 > [!TIP]
 > For reference JupyterLab defines a list of default commands here: https://jupyterlab.readthedocs.io/en/latest/user/commands.html#commands-list
 
+### Adding Additional Commands
+
+This package utilizes a bridge mechanism to transmit commands from the host to the extension running in Jupyter. To expand functionality beyond what's currently offered, you can develop a custom extension that defines new commands. If this custom extension is installed within the same Jupyter environment as the `jupyter-iframe-commands` extension, those commands will become available.
+
+For further information please cosult the Jupyter documentation:
+
+- Creating an extension: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
+- Adding commands to the command registry: https://jupyterlab.readthedocs.io/en/stable/extension/extension_points.html#commands
+
 ## Demos
 
 ### Local Demo
