@@ -38,24 +38,22 @@ npm install jupyter-iframe-commands-host
 2. Import and use the `CommandBridge`:
 
 ```typescript
-import { CommandBridge } from 'jupyter-iframe-commands-host';
+import { createBridge } from 'jupyter-iframe-commands-host';
 
 // Initialize the bridge with your iframe ID
-const bridge = new CommandBridge({
-  iframeId: 'your-jupyter-iframe-id'
-});
+const commandBridge = createBridge({ iframeId: 'your-jupyter-iframe-id' });
 
 // Execute JupyterLab commands
 // Example: Toggle the left sidebar
-await bridge.commandBridge.execute('application:toggle-left-area');
+await commandBridge.execute('application:toggle-left-area');
 
 // Example: Change the theme
-await bridge.commandBridge.execute('apputils:change-theme', {
+await commandBridge.execute('apputils:change-theme', {
   theme: 'JupyterLab Dark'
 });
 
 // List available JupyterLab commands
-const commands = await bridge.commandBridge.listCommands();
+const commands = await commandBridge.listCommands();
 console.log(commands);
 ```
 
@@ -152,6 +150,9 @@ To run the demo on a Jupyter Lite instance:
 3. Build and start the demo app:
 
 ```bash
+# Build the lite assets
+jlpm build:lite
+
 # Build the demo
 jlpm build:ghpages
 
@@ -183,10 +184,12 @@ The `jlpm` command is JupyterLab's pinned version of
 # Change directory to the jupyter-iframe-commands directory
 # Install package in development mode
 pip install -e "."
+# Install dependencies
+jlpm install
+# Build extension Typescript source after making changes
+jlpm build
 # Link your development version of the extension with JupyterLab
 jupyter labextension develop . --overwrite
-# Rebuild extension Typescript source after making changes
-jlpm build
 ```
 
 You can watch the source directory and run JupyterLab at the same time in different terminals to watch for changes in the extension's source and automatically rebuild the extension.
