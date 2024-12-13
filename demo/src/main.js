@@ -109,7 +109,6 @@ document
         args = `{"theme": "${command}"}`;
         command = 'apputils:change-theme';
       }
-      console.log('args', args);
       await submitCommand(command, args);
     }
     instructionsDialog.close();
