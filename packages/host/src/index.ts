@@ -9,11 +9,15 @@ export function createBridge({ iframeId }: { iframeId: string }) {
   const iframe = document.getElementById(iframeId) as HTMLIFrameElement;
 
   if (!iframe) {
-    throw new Error('iframe not found');
+    throw new Error(
+      `Cannot create bridge: iframe with id "${iframeId}" not found`
+    );
   }
 
   if (!iframe.contentWindow) {
-    throw new Error('child window not found');
+    throw new Error(
+      `Cannot create bridge: iframe with id "${iframeId}" has no content window`
+    );
   }
 
   return wrap<ICommandBridgeRemote>(windowEndpoint(iframe.contentWindow));
