@@ -54,7 +54,8 @@
   },
   "dependencies": {
     "@jupyterlab/application": "^4.3.2",
-    "@jupyterlab/settingregistry": "^4.3.2"
+    "@jupyterlab/settingregistry": "^4.3.2",
+    "@lumino/coreutils": "^2.2.0"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^4.3.2"

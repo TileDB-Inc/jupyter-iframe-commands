@@ -1,11 +1,11 @@
 // Copyright (c) TileDB, Inc.
 // Distributed under the terms of the Modified BSD License.
 import { Endpoint, Remote, windowEndpoint, wrap } from 'comlink';
-
+import { ICommandBridgeRemote } from 'jupyter-iframe-commands';
 /**
  * A bridge to expose actions on JupyterLab commands.
  */
-export class CommandBridge {
+class CommandBridge {
   constructor({ iframeId }: CommandBridge.IOptions) {
     this._iframe = document.getElementById(iframeId) as HTMLIFrameElement;
 
@@ -22,13 +22,21 @@ export class CommandBridge {
     }
 
     this._endpoint = windowEndpoint(this._childWindow);
-    this.commandBridge = wrap(this._endpoint);
+    this._commandBridge = wrap(this._endpoint);
+  }
+
+  get commandBridge() {
+    return this._commandBridge;
   }
 
   private _iframe: HTMLIFrameElement | null;
   private _childWindow: Window | undefined | null;
   private _endpoint: Endpoint | undefined;
-  commandBridge: Remote<unknown> | undefined;
+  private _commandBridge: Remote<ICommandBridgeRemote> | undefined;
+}
+
+export function createBridge({ iframeId }: CommandBridge.IOptions) {
+  return new CommandBridge({ iframeId }).commandBridge;
 }
 
 export namespace CommandBridge {

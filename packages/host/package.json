@@ -42,8 +42,7 @@
     "watch": "tsc -b --watch"
   },
   "dependencies": {
-    "@lumino/commands": "^2.3.1",
-    "@lumino/coreutils": "^2.2.0",
-    "comlink": "^4.4.2"
+    "comlink": "^4.4.2",
+    "jupyter-iframe-commands": "0.0.1"
   }
 }

@@ -5885,9 +5885,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jupyter-iframe-commands-host@workspace:packages/host"
   dependencies:
-    "@lumino/commands": ^2.3.1
-    "@lumino/coreutils": ^2.2.0
     comlink: ^4.4.2
+    jupyter-iframe-commands: 0.0.1
   languageName: unknown
   linkType: soft
 
@@ -5921,13 +5920,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"jupyter-iframe-commands@workspace:packages/extension":
+"jupyter-iframe-commands@0.0.1, jupyter-iframe-commands@workspace:packages/extension":
   version: 0.0.0-use.local
   resolution: "jupyter-iframe-commands@workspace:packages/extension"
   dependencies:
     "@jupyterlab/application": ^4.3.2
     "@jupyterlab/builder": ^4.3.2
     "@jupyterlab/settingregistry": ^4.3.2
+    "@lumino/coreutils": ^2.2.0
   languageName: unknown
   linkType: soft
 
