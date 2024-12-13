@@ -10,6 +10,14 @@
         "{projectRoot}/packages/extension/lib",
         "{projectRoot}/packages/host/lib"
       ]
+    },
+    "build:prod": {
+      "cache": true,
+      "dependsOn": ["^build:prod"],
+      "outputs": [
+        "{projectRoot}/packages/extension/lib",
+        "{projectRoot}/packages/host/lib"
+      ]
     }
   }
 }
