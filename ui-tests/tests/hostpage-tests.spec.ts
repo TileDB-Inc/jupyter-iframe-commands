@@ -24,11 +24,6 @@ test.describe('Commands from host should affect lab in iframe', () => {
 
     const iframe = page.locator('#jupyterlab').contentFrame();
 
-    // Close all tabs and wait for launcher
-    await page
-      .getByPlaceholder('Enter a command')
-      .fill('application:close-all');
-    await page.getByRole('button', { name: 'Submit' }).click();
     await iframe.locator('.jp-LauncherCard-icon').first().waitFor();
 
     // Make sure left sidebar is hidden
@@ -95,5 +90,13 @@ test.describe('Commands from host should affect lab in iframe', () => {
 
     await iframe.getByRole('button', { name: 'Select Kernel' }).click();
     await expect(iframe.getByLabel('Cells', { exact: true })).toBeVisible();
+
+    // Close all tabs and wait for launcher
+    await page
+      .getByPlaceholder('Enter a command')
+      .fill('application:close-all');
+    await page.getByRole('button', { name: 'Submit' }).click();
+    await iframe.getByRole('button', { name: 'Discard changes to file' }).click();
+    await iframe.locator('.jp-LauncherCard-icon').first().waitFor();
   });
 });
