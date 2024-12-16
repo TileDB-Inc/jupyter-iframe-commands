@@ -8,6 +8,7 @@
     "build": "tsc && VITE_DEMO_SRC='http://localhost:8888' VITE_TITLE='Local' vite build --base=./",
     "build:ghpages": "tsc && VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite build --base=./",
     "build:lite": "jlpm prebuild:lite && jupyter lite build --contents ../README.md --contents ./example.ipynb --lite-dir ./config --output-dir ./public/lite",
+    "build:lite:gh": "jupyter lite build --contents ../README.md --contents ./example.ipynb --lite-dir ./config --output-dir ./public/lite",
     "prebuild:lite": "test -f 'public/lite/jupyter-lite.json' && rm 'public/lite/jupyter-lite.json'",
     "preview": "VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite preview",
     "start:lab": "jupyter lab --config jupyter_server_config.py",

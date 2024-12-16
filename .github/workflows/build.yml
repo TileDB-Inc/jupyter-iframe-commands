@@ -182,7 +182,7 @@ jobs:
       - name: Build the JupyterLite assets
         working-directory: demo
         run: |
-          jlpm build:lite
+          jlpm build:lite:gh
 
       - name: Install and build Vite dependencies
         working-directory: demo
