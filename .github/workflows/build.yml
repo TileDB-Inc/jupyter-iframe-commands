@@ -180,7 +180,7 @@ jobs:
           python -m pip install .
 
       - name: Build the JupyterLite assets
-        working-directory: ui-tests
+        working-directory: demo
         run: |
           jlpm build:lite
 
