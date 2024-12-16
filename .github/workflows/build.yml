@@ -180,8 +180,9 @@ jobs:
           python -m pip install .
 
       - name: Build the JupyterLite assets
+        working-directory: ui-tests
         run: |
-          jupyter lite build --contents README.md --contents demo/example.ipynb --output-dir demo/public/lite
+          jlpm build:lite
 
       - name: Install and build Vite dependencies
         working-directory: demo
