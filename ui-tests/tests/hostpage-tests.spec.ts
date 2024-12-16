@@ -96,7 +96,9 @@ test.describe('Commands from host should affect lab in iframe', () => {
       .getByPlaceholder('Enter a command')
       .fill('application:close-all');
     await page.getByRole('button', { name: 'Submit' }).click();
-    await iframe.getByRole('button', { name: 'Discard changes to file' }).click();
+    await iframe
+      .getByRole('button', { name: 'Discard changes to file' })
+      .click();
     await iframe.locator('.jp-LauncherCard-icon').first().waitFor();
   });
 });
