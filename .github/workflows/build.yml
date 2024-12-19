@@ -52,7 +52,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: extension-artifacts
-          path: dist/jupyter_iframe_commands*
+          path: dist/*
           if-no-files-found: error
 
   test_isolated:
