@@ -40,6 +40,12 @@ jobs:
 
           jupyter labextension list 2>&1 | grep -ie "jupyter-iframe-commands.*OK"
 
+      - name: Build the npm packages
+        run: |
+          set -eux
+
+          jlpm build:npm:dist
+
       - name: Package the extension
         run: |
           set -eux
@@ -47,12 +53,6 @@ jobs:
           pip install build
           python -m build
           pip uninstall -y "jupyter_iframe_commands" jupyterlab
-
-      - name: Build the npm packages
-        run: |
-          set -eux
-
-          jlpm build:npm:dist
 
       - name: Upload extension packages
         uses: actions/upload-artifact@v4
