@@ -48,6 +48,12 @@ jobs:
           python -m build
           pip uninstall -y "jupyter_iframe_commands" jupyterlab
 
+      - name: Build the npm packages
+        run: |
+          set -eux
+
+          jlpm build:npm:dist
+
       - name: Upload extension packages
         uses: actions/upload-artifact@v4
         with:
