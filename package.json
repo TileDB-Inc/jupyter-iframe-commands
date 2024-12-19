@@ -21,6 +21,7 @@
   "scripts": {
     "build": "lerna run build",
     "build:prod": "lerna run build:prod",
+    "build:dist": "yarn build:prod && mkdir -p dist && lerna exec --no-private -- npm pack --pack-destination ../../dist",
     "clean": "lerna run clean",
     "clean:all": "lerna run clean:all",
     "eslint": "jlpm eslint:check --fix",
