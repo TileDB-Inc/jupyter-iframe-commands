@@ -122,8 +122,8 @@
   padding: 0px;
   gap: 8px;
 
-  width: 299px;
-  height: 32px;
+  /* width: 299px; */
+  /* height: 32px; */
 
   /* Inside auto layout */
   flex: none;
