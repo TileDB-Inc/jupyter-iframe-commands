@@ -1,3 +1,4 @@
+import { jupyterInfo } from 'jupyter-iframe-commands-host';
 import { useRef } from 'react';
 
 const sampleNotebooks = ['example.ipynb', 'soma.ipynb'];
@@ -19,6 +20,7 @@ const NoteBookBrowser = () => {
 
   const handleClick = (filename: string) => {
     const iframe = document.getElementById('jupyterlab') as HTMLIFrameElement;
+    jupyterInfo.setState({ isBridgeReady: false });
 
     iframe.src = `http://localhost:8888/notebooks/${filename}`;
     dialogRef.current?.close();
