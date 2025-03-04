@@ -70,6 +70,7 @@
   flex-grow: 0;
 }
 
+.file-menu-bar-buttons > button,
 .file-menu-bar-commands button {
   /* width: 32px;
   height: 32px;
@@ -449,6 +450,7 @@
   order: 0;
   flex-grow: 1;
 }
+
 .list-of-options {
   /* Auto layout */
   display: flex;
@@ -686,5 +688,16 @@
   flex: none;
   order: 0;
   align-self: stretch;
+  flex-grow: 0;
+}
+
+.separator {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background-color: #ededed;
+  vertical-align: middle;
+  flex: none;
+  order: 2;
   flex-grow: 0;
 }

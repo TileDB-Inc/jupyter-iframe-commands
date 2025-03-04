@@ -1,5 +1,6 @@
 import { ICommandBridgeRemote } from 'jupyter-iframe-commands';
 import clipboardUrl from '../../../icons/clipboard.svg';
+import fullscreenUrl from '../../../icons/fullscreen.svg';
 import redoUrl from '../../../icons/redo.svg';
 import saveUrl from '../../../icons/save.svg';
 import undoUrl from '../../../icons/undo.svg';
@@ -71,8 +72,18 @@ const FileMenuBar = ({ bridge, submitCommand }: IFileMenuBarProps) => {
         </div>
 
         <div className="file-menu-bar-buttons">
-          <RunButton submitCommand={submitCommand} />
-          {width > 550 ? <KernelInfo bridge={bridge} /> : null}
+          <RunButton submitCommand={submitCommand} bridge={bridge} />
+          {width > 550 ? (
+            <>
+              <KernelInfo bridge={bridge} />
+              <div className="separator"></div>
+              <button style={{ order: 3 }}>
+                <div className="button-name">
+                  <img src={fullscreenUrl} />
+                </div>
+              </button>
+            </>
+          ) : null}
         </div>
       </div>
     </div>
