@@ -1,6 +1,6 @@
 # jupyter_css_loader
 
-[![Github Actions Status](/workflows/Build/badge.svg)](/actions/workflows/build.yml)
+<!-- [![Github Actions Status](/workflows/Build/badge.svg)](/actions/workflows/build.yml) -->
 
 A JupyterLab extension.
 
