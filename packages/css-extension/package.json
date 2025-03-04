@@ -9,7 +9,7 @@
     ],
     "homepage": "",
     "bugs": {
-        "url": "/issues"
+        "url": "https://github.com/TileDB-Inc/jupyter-iframe-commands/issues"
     },
     "license": "BSD-3-Clause",
     "author": "gjmooney",
@@ -23,8 +23,8 @@
     "style": "style/index.css",
     "repository": {
         "type": "git",
-        "url": ".git"
-    },
+        "url": "https://github.com/TileDB-Inc/jupyter-iframe-commands.git"
+      },
     "scripts": {
         "build": "jlpm build:lib && jlpm build:labextension:dev",
         "build:prod": "jlpm clean && jlpm build:lib:prod && jlpm build:labextension",
