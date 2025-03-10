@@ -16,6 +16,13 @@ body {
   flex-direction: column;
 }
 
+.notebook-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+}
+
 .demo-top {
   display: flex;
   flex-direction: column;
