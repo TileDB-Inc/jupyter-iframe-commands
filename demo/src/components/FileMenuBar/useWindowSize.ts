@@ -1,3 +1,4 @@
+// From https://github.com/uidotdev/usehooks/blob/main/index.js
 import { useLayoutEffect, useState } from 'react';
 
 export function useWindowSize() {

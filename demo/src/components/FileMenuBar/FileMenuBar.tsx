@@ -72,7 +72,7 @@ const FileMenuBar = ({ bridge, submitCommand }: IFileMenuBarProps) => {
         </div>
 
         <div className="file-menu-bar-buttons">
-          <RunButton submitCommand={submitCommand} bridge={bridge} />
+          <RunButton submitCommand={submitCommand} />
           {width > 550 ? (
             <>
               <KernelInfo bridge={bridge} />
