@@ -15,10 +15,7 @@ const DemoTop = ({ getBridge, submitCommand }: IDemoTopProps) => {
         <h1>{import.meta.env.VITE_TITLE} Demo</h1>
         <div className="button-row">
           <Instructions submitCommand={submitCommand} />
-          <ListCommands
-            bridge={getBridge} //can pass bridge itself
-            apiFunction={getBridge()?.listCommands} // can pass function from bridge
-          />
+          <ListCommands bridge={getBridge} />
           {/* <NoteBookBrowser /> */}
           {/* <ModeToggle /> */}
         </div>

@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="notebooks/:notebookId" element={<NotebookPage />} />
+        <Route path=":type/:notebookId" element={<NotebookPage />} />
       </Routes>
     </BrowserRouter>
   );

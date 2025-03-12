@@ -39,7 +39,7 @@ const NotebookPage = () => {
         <FileMenuBar bridge={getBridge} submitCommand={submitCommand} />
         <JupyterIframe
           ref={iframeRef}
-          iframeSrc={`http://localhost:8888/notebooks/${params.notebookId}`}
+          iframeSrc={`http://localhost:8888/${params.type}/${params.notebookId}`}
         />
       </div>
       <ErrorDialog ref={dialogRef} message={errorMessage} />
