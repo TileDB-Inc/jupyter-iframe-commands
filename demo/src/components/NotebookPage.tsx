@@ -36,7 +36,9 @@ const NotebookPage = () => {
     <>
       <DemoTop getBridge={getBridge} submitCommand={submitCommand} />
       <div className="iframe-container">
-        <FileMenuBar bridge={getBridge} submitCommand={submitCommand} />
+        {params.type === 'notebooks' ? (
+          <FileMenuBar bridge={getBridge} submitCommand={submitCommand} />
+        ) : null}
         <JupyterIframe
           ref={iframeRef}
           iframeSrc={`http://localhost:8888/${params.type}/${params.notebookId}`}
