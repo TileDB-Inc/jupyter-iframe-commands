@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import arrowDownUrl from '../../../icons/arrowDown.svg';
 import playUrl from '../../../icons/play.svg';
-import { usePopover } from './usePopover';
+import { usePopover } from '../usePopover';
 
 interface IRunButtonProps {
   submitCommand: (command: string, args: string) => void;

@@ -4,13 +4,13 @@ import fullscreenUrl from '../../../icons/fullscreen.svg';
 import redoUrl from '../../../icons/redo.svg';
 import saveUrl from '../../../icons/save.svg';
 import undoUrl from '../../../icons/undo.svg';
+import { useWindowSize } from '../useWindowSize';
 import AddCellButton from './AddCellButton';
 import AvailableCommands from './AvailableCommands';
 import BulletsButton from './BulletsButton';
 import KernelInfo from './KernelInfo';
 import RunButton from './RunButton';
 import './fileMenuBar.css';
-import { useWindowSize } from './useWindowSize';
 interface IFileMenuBarProps {
   bridge: () => ICommandBridgeRemote;
   submitCommand: (command: string, args: string) => void;

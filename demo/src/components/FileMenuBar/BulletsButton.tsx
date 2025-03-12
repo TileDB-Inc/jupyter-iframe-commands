@@ -1,7 +1,7 @@
 import { ICommandBridgeRemote } from 'jupyter-iframe-commands';
 import { useCallback } from 'react';
 import bulletsUrl from '../../../icons/bullets.svg';
-import { usePopover } from './usePopover';
+import { usePopover } from '../usePopover';
 
 interface IAvailableCommandsProps {
   bridge: () => ICommandBridgeRemote;

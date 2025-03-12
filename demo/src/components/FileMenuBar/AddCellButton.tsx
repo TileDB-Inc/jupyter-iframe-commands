@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import codeUrl from '../../../icons/code.svg';
 import markdownUrl from '../../../icons/markdown.svg';
 import plusUrl from '../../../icons/plus.svg';
-import PopoverListItem from './PopoverListItem';
-import { usePopover } from './usePopover';
+import { usePopover } from '../usePopover';
+import PopoverListItem from '../PopoverListItem';
 
 interface IAddCellButtonProps {
   submitCommand: (command: string, args: string) => void;

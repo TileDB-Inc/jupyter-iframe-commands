@@ -1,7 +1,7 @@
 import { ICommandBridgeRemote } from 'jupyter-iframe-commands';
 import { ChangeEvent, useCallback, useState } from 'react';
-import plusUrl from '../../../icons/keyboard.svg';
-import { usePopover } from './usePopover';
+import keyboardUrl from '../../../icons/keyboard.svg';
+import { usePopover } from '../usePopover';
 
 interface IAvailableCommandsProps {
   bridge: () => ICommandBridgeRemote;
@@ -52,7 +52,7 @@ const AvailableCommands = ({ bridge }: IAvailableCommandsProps) => {
   return (
     <div ref={ref} style={{ position: 'relative', display: 'inline-block' }}>
       <button onClick={toggle}>
-        <img src={plusUrl} />
+        <img src={keyboardUrl} />
       </button>
 
       {isOpen && (
