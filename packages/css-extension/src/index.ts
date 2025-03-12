@@ -2,6 +2,7 @@ import {
   JupyterFrontEnd,
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
+import { TerminalAPI } from '@jupyterlab/services';
 
 /**
  * Initialization data for the jupyter-css-loader extension.
@@ -22,6 +23,14 @@ const plugin: JupyterFrontEndPlugin<void> = {
         styleTag.innerText = args['parsedCSS'] as string;
 
         document.head.appendChild(styleTag);
+      }
+    });
+
+    commands.addCommand('shutdown-all-terminals', {
+      execute: args => {
+        console.log('args', args);
+        console.log('args', args['name'] as string);
+        TerminalAPI.shutdownTerminal(args['name'] as string);
       }
     });
   }

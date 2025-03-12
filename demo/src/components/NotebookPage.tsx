@@ -6,6 +6,7 @@ import ErrorDialog from './Error';
 import FileMenuBar from './FileMenuBar/FileMenuBar';
 import { useGetJupyterInfo } from './FileMenuBar/useGetJupyterInfo';
 import JupyterIframe from './JupyterIframe';
+import TerminalMenu from './TerminalBar/TerminalMenu';
 
 const NotebookPage = () => {
   const params = useParams();
@@ -35,10 +36,13 @@ const NotebookPage = () => {
   return (
     <>
       <DemoTop getBridge={getBridge} submitCommand={submitCommand} />
+
       <div className="iframe-container">
         {params.type === 'notebooks' ? (
           <FileMenuBar bridge={getBridge} submitCommand={submitCommand} />
-        ) : null}
+        ) : (
+          <TerminalMenu bridge={getBridge} />
+        )}
         <JupyterIframe
           ref={iframeRef}
           iframeSrc={`http://localhost:8888/${params.type}/${params.notebookId}`}

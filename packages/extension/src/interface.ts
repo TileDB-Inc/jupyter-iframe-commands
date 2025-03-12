@@ -1,3 +1,4 @@
+import { KernelAPI, Session, TerminalAPI } from '@jupyterlab/services';
 import { ReadonlyPartialJSONObject } from '@lumino/coreutils';
 
 /**
@@ -20,4 +21,10 @@ export interface ICommandBridgeRemote {
    * @returns An array of strings representing the names of all available commands.
    */
   listCommands(): Promise<string[]>;
+
+  listRunning(): Promise<{
+    terminals: TerminalAPI.IModel[];
+    sessions: Session.IModel[];
+    kernels: KernelAPI.IModel[];
+  }>;
 }
