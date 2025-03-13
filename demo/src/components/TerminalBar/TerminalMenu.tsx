@@ -1,6 +1,5 @@
 import { ICommandBridgeRemote } from 'jupyter-iframe-commands';
-import { useCallback, useState } from 'react';
-import keyboardUrl from '../../../icons/keyboard.svg';
+import { useEffect, useState } from 'react';
 import { usePopover } from '../usePopover';
 
 interface IAvailableCommandsProps {
@@ -8,21 +7,31 @@ interface IAvailableCommandsProps {
 }
 
 const TerminalMenu = ({ bridge }: IAvailableCommandsProps) => {
-  const iframe = document.getElementById('jupyterlab') as HTMLIFrameElement;
+  const { isOpen, toggle, close, ref } = usePopover();
 
+  const [activeTerminal, setActiveTerminal] = useState(1);
+  const [runningTerminals, setRunningTerminals] = useState<string[]>([]);
+
+  useEffect(() => {
+    console.log('activeTerminal', activeTerminal);
+    console.log('runningTerminals.length', runningTerminals.length);
+  }, [activeTerminal, runningTerminals]);
+
+  const iframe = document.getElementById('jupyterlab') as HTMLIFrameElement;
   if (!iframe) {
     return;
   }
 
-  const { isOpen, toggle, close, ref } = usePopover();
-
-  const [runningTerminals, setRunningTerminals] = useState<string[]>([]);
+  const setIframeSrc = (terminal: number) => {
+    setActiveTerminal(terminal);
+    iframe.src = `http://localhost:8888/terminals/${terminal}`;
+  };
 
   // Handle option click
-  const handleOptionClick = useCallback((terminal: string): void => {
-    iframe.src = `http://localhost:8888/terminals/${terminal}`;
+  const handleOptionClick = (terminal: string): void => {
+    setIframeSrc(+terminal);
     close();
-  }, []);
+  };
 
   const handleOpen = async () => {
     const running = await bridge().listRunning();
@@ -40,16 +49,35 @@ const TerminalMenu = ({ bridge }: IAvailableCommandsProps) => {
     runningTerminals.forEach(term => {
       bridge().execute('shutdown-all-terminals', { name: term });
     });
-    // submitCommand('shutdown-all-terminals', '{teees: "test"}');
+  };
+
+  const handlePrev = () => {
+    setIframeSrc(activeTerminal - 1);
+  };
+  const handleNext = () => {
+    setIframeSrc(activeTerminal + 1);
   };
 
   return (
     <div ref={ref} style={{ position: 'relative', display: 'inline-block' }}>
-      <button onClick={handleOpen}>
-        <img src={keyboardUrl} />
+      <div>Using Terminal-0{activeTerminal}</div>
+      <button onClick={handleOpen}>terminals</button>
+      <button onClick={handleShutdown}>shutdown terms</button>
+      <button disabled={activeTerminal - 1 < 1} onClick={handlePrev}>
+        handlePrev
       </button>
-      <button onClick={handleShutdown}>
-        <img src={keyboardUrl} />
+      <button
+        disabled={activeTerminal + 1 > runningTerminals.length}
+        onClick={handleNext}
+      >
+        handleNext
+      </button>
+      <button
+        onClick={() => {
+          bridge().execute('terminal:set-theme', { theme: 'inherit' });
+        }}
+      >
+        set theme
       </button>
 
       {isOpen && (
