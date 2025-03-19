@@ -4,8 +4,7 @@
   "description": "JupyterLab jupyter-iframe-commands Integration Tests",
   "private": true,
   "scripts": {
-    "start:lab": "jupyter lab --config jupyter_server_test_config.py",
-    "start:server": "jlpm --cwd ../demo start:local",
+    "start": "jupyter lab --config jupyter_server_test_config.py",
     "test": "jlpm playwright test",
     "test:update": "jlpm playwright test --update-snapshots"
   },
