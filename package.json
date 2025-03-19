@@ -15,9 +15,7 @@
   "license": "BSD-3-Clause",
   "author": "QuantStack",
   "workspaces": [
-    "packages/*",
-    "demo",
-    "demo-react"
+    "packages/*"
   ],
   "scripts": {
     "build": "lerna run build",

@@ -128,47 +128,6 @@ For further information please consult the Jupyter documentation:
 - Creating an extension: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
 - Adding commands to the command registry: https://jupyterlab.readthedocs.io/en/stable/extension/extension_points.html#commands
 
-## Demos
-
-### Local Demo
-
-To run the demo on a local Jupyter Lab instance:
-
-1. Follow the [development install instructions](#development-install)
-2. `cd demo`
-3. Start JupyterLab:
-
-```bash
-jlpm start:lab
-```
-
-4. In another terminal, start the demo app:
-
-```bash
-jlpm start:local
-```
-
-Open http://localhost:8080 in your browser.
-
-### Lite Demo
-
-To run the demo on a Jupyter Lite instance:
-
-1. Follow the [development install instructions](#development-install)
-2. `cd demo`
-3. Build and start the demo app:
-
-```bash
-# Build the lite assets
-jlpm build:lite
-
-# Build the demo
-jlpm build:ghpages
-
-# Start the development server
-jlpm start:lite
-```
-
 ## Uninstall
 
 To remove the extension, execute:
