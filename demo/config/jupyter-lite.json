@@ -1,0 +1,11 @@
+{
+  "jupyter-lite-schema-version": 0,
+  "jupyter-config-data": {
+    "disabledExtensions": [
+      "@jupyterlab/mainmenu-extension",
+      "@jupyterlite/application-extension:logo",
+      "@jupyterlab/help-extension:resources",
+      "@jupyter-notebook/lab-extension"
+    ]
+  }
+}

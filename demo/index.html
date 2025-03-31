@@ -1,0 +1,64 @@
+<!-- parent.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Demo for Jupyter iframe commands - Control JupyterLab through iframe messages"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Jupyter IFrame Commands Demo</title>
+    <script type="module" src="src/main.js"></script>
+  </head>
+  <body>
+    <div class="demo-top">
+      <h1>%VITE_TITLE% Demo</h1>
+      <div class="button-row">
+        <button id="instructions" aria-label="Show instructions">
+          <span>📖 Instructions</span>
+        </button>
+        <button id="list-commands" aria-label="Show available commands">
+          List Available Commands
+        </button>
+        <div class="mode-toggle">
+          <label>
+            <input type="radio" name="mode" value="lab" checked />
+            <span>JupyterLab</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="notebook" />
+            <span>Jupyter Notebook</span>
+          </label>
+        </div>
+      </div>
+      <div class="input-area">
+        <form id="commands" autocomplete="off">
+          <input
+            type="text"
+            name="command"
+            placeholder="Enter a command"
+            aria-label="Command input"
+            required
+          />
+          <input
+            type="text"
+            name="args"
+            placeholder="Enter args (optional)"
+            aria-label="Command arguments"
+          />
+          <button type="submit">Submit Command</button>
+        </form>
+      </div>
+    </div>
+
+    <iframe
+      id="jupyterlab"
+      src="%VITE_DEMO_SRC%"
+      sandbox="allow-scripts allow-same-origin"
+      title="JupyterLab Instance"
+      loading="lazy"
+    ></iframe>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "jupyter-iframe-commands-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite",
+    "build": "tsc && VITE_DEMO_SRC='http://localhost:8888' VITE_TITLE='Local' vite build --base=./",
+    "build:ghpages": "tsc && VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite build --base=./",
+    "build:lite": "jlpm clean:lite && jupyter lite build --contents ../README.md --contents ./example.ipynb --lite-dir ./config --output-dir ./public/lite",
+    "clean:lite": "rm -rf public/lite",
+    "preview": "VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite preview",
+    "start:lab": "jupyter lab --config jupyter_server_config.py",
+    "start:lite": "jlpm dev",
+    "start:local": "VITE_DEMO_SRC='http://localhost:8888' VITE_TITLE='Local' vite --port 8080"
+  },
+  "dependencies": {
+    "jupyter-iframe-commands-host": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.2",
+    "vite": "^6.0.1"
+  }
+}
