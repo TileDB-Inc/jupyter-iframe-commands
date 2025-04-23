@@ -62,21 +62,6 @@ const plugin: JupyterFrontEndPlugin<void> = {
         const sessions = await SessionAPI.listRunning();
         const kernels = await KernelAPI.listRunning();
 
-        // ! also works
-        // const terminalssm = app.serviceManager.terminals.running();
-        // const kernelssm = app.serviceManager.kernels.running();
-        // const sessionssm = app.serviceManager.sessions.running();
-
-        // for (const terminal of terminalssm) {
-        //   console.log('terminal', terminal);
-        // }
-        // for (const kernel of kernelssm) {
-        //   console.log('kernel', kernel);
-        // }
-        // for (const session of sessionssm) {
-        //   console.log('session', session);
-        // }
-
         return { terminals, sessions, kernels };
       }
     };
