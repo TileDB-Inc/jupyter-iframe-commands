@@ -128,7 +128,6 @@ For further information please consult the Jupyter documentation:
 - Creating an extension: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
 - Adding commands to the command registry: https://jupyterlab.readthedocs.io/en/stable/extension/extension_points.html#commands
 
-
 ### Registering Callbacks
 
 If you would like to register a callback to be executed when a particular event occurs in the JupyterLab, you can make use of the `createProxy` function from the `jupyter-iframe-commands-host` package. This function allows you to create a proxy to be passed to the IFrame as a command `args`, so it can be invoked in a JupyterLab command.
@@ -185,6 +184,17 @@ const demoPlugin: JupyterFrontEndPlugin<void> = {
 };
 ```
 
+> [!WARNING]
+> The returned value of `createProxy` must be passed as the `args` of the command so the underlying proxy can properly be transferred by Comlink. `createProxy` can proxy an entire object, so you can pass multiple callbacks and other data as well at once. For example:
+>
+> ```js
+> const proxy = createProxy({
+>   kernelStatus,
+>   anotherCallback,
+>   someData: { foo: 'bar' }
+> });
+> await commandBridge.execute('kernel-status', proxy);
+> ```
 
 ## Demos
 
