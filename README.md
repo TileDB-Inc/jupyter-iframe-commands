@@ -128,6 +128,64 @@ For further information please consult the Jupyter documentation:
 - Creating an extension: https://jupyterlab.readthedocs.io/en/stable/extension/extension_dev.html
 - Adding commands to the command registry: https://jupyterlab.readthedocs.io/en/stable/extension/extension_points.html#commands
 
+
+### Registering Callbacks
+
+If you would like to register a callback to be executed when a particular event occurs in the JupyterLab, you can make use of the `createProxy` function from the `jupyter-iframe-commands-host` package. This function allows you to create a proxy to be passed to the IFrame as a command `args`, so it can be invoked in a JupyterLab command.
+
+On the host, define the callback function:
+
+```js
+import { createBridge, createProxy } from 'jupyter-iframe-commands-host';
+
+const commandBridge = createBridge({ iframeId: 'jupyterlab' });
+
+const kernelStatus = async ({ displayName, isBusy }) => {
+  console.log('Received kernel status update from the iframe');
+  console.log('Display Name:', displayName);
+  console.log('Is Busy:', isBusy);
+};
+
+await commandBridge.execute('kernel-status', createProxy({ kernelStatus }));
+```
+
+In your custom JupyterLab extension, you can define a command:
+
+```ts
+const demoPlugin: JupyterFrontEndPlugin<void> = {
+  id: 'jupyter-iframe-commands:demo-callback',
+  autoStart: true,
+  description: 'Using host callbacks',
+  requires: [ILabStatus, INotebookTracker],
+  activate: async (
+    app: JupyterFrontEnd,
+    labStatus: ILabStatus,
+    tracker: INotebookTracker
+  ) => {
+    const { commands } = app;
+
+    commands.addCommand('kernel-status', {
+      label: 'Kernel Status',
+      execute: args => {
+        const kernelStatus = args['kernelStatus'] as unknown as (
+          args?: any
+        ) => void;
+
+        labStatus.busySignal.connect(async () => {
+          const kernelSpec =
+            await tracker.currentWidget?.sessionContext?.session?.kernel?.spec;
+          const displayName = kernelSpec
+            ? kernelSpec.display_name
+            : 'Loading...';
+          kernelStatus({ displayName, isBusy: labStatus.isBusy });
+        });
+      }
+    });
+  }
+};
+```
+
+
 ## Demos
 
 ### Local Demo
