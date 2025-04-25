@@ -47,7 +47,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
       async execute(command: string, args: ReadonlyPartialJSONObject) {
         await commands.execute(command, args);
       },
-      listCommands() {
+      async listCommands() {
         return commands.listCommands();
       }
     };

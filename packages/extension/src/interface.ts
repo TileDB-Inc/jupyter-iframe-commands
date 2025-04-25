@@ -19,5 +19,5 @@ export interface ICommandBridgeRemote {
    *
    * @returns An array of strings representing the names of all available commands.
    */
-  listCommands(): string[];
+  listCommands(): Promise<string[]>;
 }
