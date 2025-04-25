@@ -45,15 +45,19 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     const api: ICommandBridgeRemote = {
       async execute(command: string, args: ReadonlyPartialJSONObject) {
-        await commands.execute(command, args);
+        return await commands.execute(command, args);
       },
-      listCommands() {
+      async listCommands() {
         return commands.listCommands();
       }
     };
 
     const endpoint = windowEndpoint(self.parent);
     expose(api, endpoint);
+
+    app.started.then(() => {
+      window.parent?.postMessage('extension-loaded', '*');
+    });
   }
 };
 
