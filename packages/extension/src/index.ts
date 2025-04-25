@@ -54,6 +54,10 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     const endpoint = windowEndpoint(self.parent);
     expose(api, endpoint);
+
+    app.started.then(() => {
+      window.parent?.postMessage('extension-loaded', '*');
+    });
   }
 };
 
