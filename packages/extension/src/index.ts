@@ -45,7 +45,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     const api: ICommandBridgeRemote = {
       async execute(command: string, args: ReadonlyPartialJSONObject) {
-        await commands.execute(command, args);
+        return await commands.execute(command, args);
       },
       async listCommands() {
         return commands.listCommands();
