@@ -7,7 +7,8 @@ module.exports = {
   ...baseConfig,
   retries: process.env.CI ? 2 : 0,
   use: {
-    trace: 'on-first-retry'
+    trace: 'on-first-retry',
+    video: 'retain-on-failure',
   },
   webServer: [
     {
