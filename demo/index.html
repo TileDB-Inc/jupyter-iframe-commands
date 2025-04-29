@@ -53,12 +53,15 @@
       </div>
     </div>
 
-    <iframe
-      id="jupyterlab"
-      src="%VITE_DEMO_SRC%"
-      sandbox="allow-scripts allow-same-origin"
-      title="JupyterLab Instance"
-      loading="lazy"
-    ></iframe>
+    <div class="iframe-container">
+      <div id="bridge-status" class="status-indicator">Connecting to JupyterLab...</div>
+      <iframe
+        id="jupyterlab"
+        src="%VITE_DEMO_SRC%"
+        sandbox="allow-scripts allow-same-origin"
+        title="JupyterLab Instance"
+        loading="lazy"
+      ></iframe>
+    </div>
   </body>
 </html>

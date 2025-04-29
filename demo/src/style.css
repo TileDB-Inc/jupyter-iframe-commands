@@ -258,3 +258,22 @@ dialog button[value='close']:hover {
   font-weight: 500;
   user-select: none;
 }
+
+.status-indicator {
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

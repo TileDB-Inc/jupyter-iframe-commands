@@ -58,11 +58,11 @@ export function createBridge({
   // Create a proxy that intercepts property access
   return new Proxy(wrappedBridge, {
     get(target, prop, receiver) {
-      // Return our custom ready promise for the 'ready' property
+      // If the property is 'ready', return the ready promise
       if (prop === 'ready') {
         return readyPromise;
       }
-      // Otherwise delegate to the wrapped bridge
+      // Otherwise delegate to the comlink wrapped bridge
       return Reflect.get(target, prop, receiver);
     }
   });

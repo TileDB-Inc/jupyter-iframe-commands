@@ -4,7 +4,20 @@ import { createBridge } from 'jupyter-iframe-commands-host';
 
 const commandBridge = createBridge({ iframeId: 'jupyterlab' });
 
+const statusIndicator = document.getElementById('bridge-status');
+statusIndicator.style.backgroundColor = '#ffa500'; // Orange for connecting
+
+let bridgeReady = false;
+
 const submitCommand = async (command, args) => {
+  // Don't allow command execution until bridge is ready
+  if (!bridgeReady) {
+    document.getElementById('error-dialog').innerHTML =
+      '<code>Command bridge is not ready yet. Please wait.</code>';
+    errorDialog.showModal();
+    return;
+  }
+
   try {
     await commandBridge.execute(command, args ? JSON.parse(args) : {});
   } catch (e) {
@@ -156,4 +169,11 @@ modeRadios.forEach(radio => {
 
     iframe.src = currentUrl.toString();
   });
+});
+
+// Wait for the command bridge to be ready
+commandBridge.ready.then(() => {
+  bridgeReady = true;
+  statusIndicator.textContent = 'Connected to JupyterLab';
+  statusIndicator.style.backgroundColor = '#32CD32'; // Green for connected
 });
