@@ -55,14 +55,17 @@ export function createBridge({
       });
   });
 
-  // Create a wrapper that delegates to the original bridge but also adds
-  // a custom promise for the ready event
-  return {
-    execute: (command: string, args: any) =>
-      wrappedBridge.execute(command, args),
-    listCommands: () => wrappedBridge.listCommands(),
-    ready: readyPromise
-  };
+  // Create a proxy that intercepts property access
+  return new Proxy(wrappedBridge, {
+    get(target, prop, receiver) {
+      // Return our custom ready promise for the 'ready' property
+      if (prop === 'ready') {
+        return readyPromise;
+      }
+      // Otherwise delegate to the wrapped bridge
+      return Reflect.get(target, prop, receiver);
+    }
+  });
 }
 
 /**
