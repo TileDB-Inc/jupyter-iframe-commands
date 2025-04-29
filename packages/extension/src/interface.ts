@@ -20,4 +20,9 @@ export interface ICommandBridgeRemote {
    * @returns An array of strings representing the names of all available commands.
    */
   listCommands(): Promise<string[]>;
+
+  /**
+   * Waits for the JupyterLab environment to be ready.
+   */
+  ready: Promise<void>;
 }

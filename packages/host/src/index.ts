@@ -3,10 +3,15 @@
 import { windowEndpoint, wrap, proxy, ProxyOrClone } from 'comlink';
 
 import { ICommandBridgeRemote } from 'jupyter-iframe-commands';
+
 /**
  * A bridge to expose actions on JupyterLab commands.
  */
-export function createBridge({ iframeId }: { iframeId: string }) {
+export function createBridge({
+  iframeId
+}: {
+  iframeId: string;
+}): ICommandBridgeRemote {
   const iframe = document.getElementById(iframeId) as HTMLIFrameElement;
 
   if (!iframe) {
@@ -21,7 +26,43 @@ export function createBridge({ iframeId }: { iframeId: string }) {
     );
   }
 
-  return wrap<ICommandBridgeRemote>(windowEndpoint(iframe.contentWindow));
+  const wrappedBridge = wrap<ICommandBridgeRemote>(
+    windowEndpoint(iframe.contentWindow)
+  );
+
+  // Create a promise that resolves when the iframe signals it's ready
+  const readyPromise = new Promise<void>(resolve => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    const messageHandler = (event: MessageEvent) => {
+      if (event.data === 'extension-loaded') {
+        controller.abort();
+        resolve();
+      }
+    };
+
+    window.addEventListener('message', messageHandler, { signal });
+
+    wrappedBridge.ready
+      .then(() => {
+        controller.abort();
+        resolve();
+      })
+      .catch(() => {
+        // If ready() fails, we'll still wait for the message
+        // No need to do anything, the message listener is still active
+      });
+  });
+
+  // Create a wrapper that delegates to the original bridge but also adds
+  // a custom promise for the ready event
+  return {
+    execute: (command: string, args: any) =>
+      wrappedBridge.execute(command, args),
+    listCommands: () => wrappedBridge.listCommands(),
+    ready: readyPromise
+  };
 }
 
 /**
