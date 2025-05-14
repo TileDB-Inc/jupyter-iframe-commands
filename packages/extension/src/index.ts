@@ -49,13 +49,15 @@ const plugin: JupyterFrontEndPlugin<void> = {
       },
       async listCommands() {
         return commands.listCommands();
+      },
+      get ready() {
+        return app.started;
       }
     };
 
-    const endpoint = windowEndpoint(self.parent);
-    expose(api, endpoint);
-
     app.started.then(() => {
+      const endpoint = windowEndpoint(self.parent);
+      expose(api, endpoint);
       window.parent?.postMessage('extension-loaded', '*');
     });
   }
