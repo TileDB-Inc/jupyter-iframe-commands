@@ -62,7 +62,9 @@ test.describe('Commands from host should affect lab in iframe', () => {
 
     await waitForApp(page);
 
-    await expect(page).toHaveScreenshot('light-theme.png', { timeout: 1500 });
+    await expect(page).toHaveScreenshot('light-theme-chromium.png', {
+      timeout: 1500
+    });
   });
 
   test('Swich to dark theme', async ({ page }) => {
@@ -76,7 +78,9 @@ test.describe('Commands from host should affect lab in iframe', () => {
 
     await waitForApp(page);
 
-    await expect(page).toHaveScreenshot('dark-theme.png', { timeout: 1500 });
+    await expect(page).toHaveScreenshot('dark-theme-chromium.png', {
+      timeout: 1500
+    });
   });
 
   test('Open a new notebook', async ({ page }) => {
