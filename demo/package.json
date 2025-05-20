@@ -1,7 +1,7 @@
 {
   "name": "jupyter-iframe-commands-demo",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "scripts": {
     "dev": "VITE_DEMO_SRC='./lite/index.html' VITE_TITLE='Lite' vite",
@@ -15,7 +15,7 @@
     "start:local": "VITE_DEMO_SRC='http://localhost:8888' VITE_TITLE='Local' vite --port 8080"
   },
   "dependencies": {
-    "jupyter-iframe-commands-host": "^0.2.0"
+    "jupyter-iframe-commands-host": "^0.3.0"
   },
   "devDependencies": {
     "typescript": "~5.6.2",
