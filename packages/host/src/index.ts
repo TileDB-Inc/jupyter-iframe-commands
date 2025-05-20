@@ -36,7 +36,7 @@ export function createBridge({
     const signal = controller.signal;
 
     const messageHandler = (event: MessageEvent) => {
-      if (event.data === 'extension-loaded') {
+      if (event.data === '_JUPYTER_IFRAME_COMMANDS_LOADED') {
         controller.abort();
         resolve();
       }
