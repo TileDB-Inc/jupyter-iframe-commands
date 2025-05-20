@@ -11,8 +11,8 @@ const waitForApp = async (page: Page) => {
 test.use({
   baseURL: 'http://localhost:8080',
   viewport: {
-    width: 1024,
-    height: 768
+    width: 1280,
+    height: 1024
   }
 });
 /**
