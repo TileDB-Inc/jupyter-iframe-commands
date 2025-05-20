@@ -12,7 +12,7 @@ export interface ICommandBridgeRemote {
    * @param command - The name of the command to execute.
    * @param args - An object containing arguments for the command.
    */
-  execute(command: string, args: ReadonlyPartialJSONObject): Promise<any>;
+  execute(command: string, args: ReadonlyPartialJSONObject): Promise<unknown>;
 
   /**
    * Lists all available commands.

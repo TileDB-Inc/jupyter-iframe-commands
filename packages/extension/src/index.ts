@@ -45,7 +45,15 @@ const plugin: JupyterFrontEndPlugin<void> = {
 
     const api: ICommandBridgeRemote = {
       async execute(command: string, args: ReadonlyPartialJSONObject) {
-        return await commands.execute(command, args);
+        const result = await commands.execute(command, args);
+        try {
+          // Attempt to clone result to check if it's serializable
+          const clone = structuredClone(result);
+          return clone;
+        } catch (error) {
+          // Non-serializable values can't be sent over Comlink
+          void error;
+        }
       },
       async listCommands() {
         return commands.listCommands();
