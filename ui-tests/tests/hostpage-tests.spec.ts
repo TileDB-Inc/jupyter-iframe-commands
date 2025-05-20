@@ -1,4 +1,4 @@
-import { test, expect, Page } from '@playwright/test';
+import { expect, Page, test } from '@playwright/test';
 
 const waitForApp = async (page: Page) => {
   const iframe = page.locator('#jupyterlab').contentFrame();
@@ -22,28 +22,21 @@ test.describe('Commands from host should affect lab in iframe', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('index.html');
 
-    const iframe = page.locator('#jupyterlab').contentFrame();
+    const iframe = page
+      .locator('iframe[title="JupyterLab Instance"]')
+      .contentFrame();
 
     await iframe.locator('.jp-LauncherCard-icon').first().waitFor();
 
-    // Make sure left sidebar is hidden
-    await iframe.getByText('View', { exact: true }).click();
-    await iframe.getByText('Appearance').hover();
-    await iframe
-      .locator('#jp-mainmenu-view-appearance')
-      .getByText('Show Left Sidebar')
-      .waitFor();
-
     const leftSidebarOpen = await iframe
-      .getByRole('menuitem', { name: 'Show Left Sidebar Ctrl+B' })
-      .getByRole('img')
+      .getByRole('button', { name: 'New Folder' })
       .isVisible();
 
     if (leftSidebarOpen) {
-      await iframe
-        .locator('#jp-mainmenu-view-appearance')
-        .getByText('Show Left Sidebar')
-        .click();
+      await iframe.getByText('View', { exact: true }).click();
+      await iframe.getByText('Appearance').hover();
+      await iframe.getByText('Show Left Sidebar').waitFor();
+      await iframe.getByText('Show Left Sidebar').click();
     }
 
     await iframe.locator('#jp-MainLogo').click();
@@ -51,7 +44,7 @@ test.describe('Commands from host should affect lab in iframe', () => {
     await waitForApp(page);
   });
 
-  test('Swich to light theme', async ({ page }) => {
+  test('Switch to light theme', async ({ page }) => {
     await page
       .getByPlaceholder('Enter a command')
       .fill('apputils:change-theme');
@@ -62,12 +55,12 @@ test.describe('Commands from host should affect lab in iframe', () => {
 
     await waitForApp(page);
 
-    await expect(page).toHaveScreenshot('light-theme-chromium.png', {
+    await expect(page).toHaveScreenshot('light-theme.png', {
       timeout: 1500
     });
   });
 
-  test('Swich to dark theme', async ({ page }) => {
+  test('Switch to dark theme', async ({ page }) => {
     await page
       .getByPlaceholder('Enter a command')
       .fill('apputils:change-theme');
@@ -78,7 +71,7 @@ test.describe('Commands from host should affect lab in iframe', () => {
 
     await waitForApp(page);
 
-    await expect(page).toHaveScreenshot('dark-theme-chromium.png', {
+    await expect(page).toHaveScreenshot('dark-theme.png', {
       timeout: 1500
     });
   });
