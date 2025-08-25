@@ -43,6 +43,9 @@ import { createBridge } from 'jupyter-iframe-commands-host';
 // Initialize the bridge with your iframe ID
 const commandBridge = createBridge({ iframeId: 'your-jupyter-iframe-id' });
 
+// Wait for the bridge to be ready before executing commands
+await commandBridge.ready;
+
 // Execute JupyterLab commands
 // Example: Toggle the left sidebar
 await commandBridge.execute('application:toggle-left-area');
@@ -138,6 +141,9 @@ On the host, define the callback function:
 import { createBridge, createProxy } from 'jupyter-iframe-commands-host';
 
 const commandBridge = createBridge({ iframeId: 'jupyterlab' });
+
+// Wait for the bridge to be ready
+await commandBridge.ready;
 
 const kernelStatus = async ({ displayName, isBusy }) => {
   console.log('Received kernel status update from the iframe');
