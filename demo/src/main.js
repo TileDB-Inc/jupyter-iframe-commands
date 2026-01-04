@@ -150,6 +150,7 @@ document.getElementById('commands').addEventListener('submit', async e => {
 
 // Handle mode toggle
 const iframe = document.getElementById('jupyterlab');
+iframe.classList.add('iframe-hidden');
 const modeRadios = document.querySelectorAll('input[name="mode"]');
 
 modeRadios.forEach(radio => {
@@ -176,4 +177,5 @@ commandBridge.ready.then(() => {
   bridgeReady = true;
   statusIndicator.textContent = 'Connected to JupyterLab';
   statusIndicator.style.backgroundColor = '#32CD32'; // Green for connected
+  iframe.classList.remove('iframe-hidden');
 });

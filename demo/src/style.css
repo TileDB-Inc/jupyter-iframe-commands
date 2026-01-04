@@ -277,3 +277,7 @@ dialog button[value='close']:hover {
   flex-direction: column;
   align-items: center;
 }
+
+#jupyterlab.iframe-hidden {
+  visibility: hidden;
+}
